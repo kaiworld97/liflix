@@ -1,6 +1,6 @@
 from django.db import models
 import json
-
+import ast
 
 # Create your models here.
 
@@ -8,7 +8,7 @@ class MovieModel(models.Model):
     class Meta:
         db_table = "movie"
 
-    code = models.IntegerField(max_length=7)
+    code = models.IntegerField()
     title = models.CharField(max_length=256)
     director = models.CharField(max_length=256)
     actor = models.CharField(max_length=256)
@@ -17,7 +17,7 @@ class MovieModel(models.Model):
         self.actor = json.dumps(x)
 
     def get_actor(self):
-        return json.loads(self.actor)
+        return ast.literal_eval(json.loads(self.actor))
 
     genre = models.CharField(max_length=256)
 
@@ -25,7 +25,7 @@ class MovieModel(models.Model):
         self.genre = json.dumps(x)
 
     def get_genre(self):
-        return json.loads(self.genre)
+        return ast.literal_eval(json.loads(self.genre))
 
     similar = models.CharField(max_length=256)
 
@@ -33,8 +33,7 @@ class MovieModel(models.Model):
         self.similar = json.dumps(x)
 
     def get_similar(self):
-        return json.loads(self.similar)
-
+        return ast.literal_eval(json.loads(self.similar))
     trailer = models.URLField(max_length=256)
     poster = models.URLField(max_length=256)
     story = models.TextField(max_length=256)
