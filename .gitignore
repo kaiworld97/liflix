@@ -11,3 +11,5 @@ movie/migrations/0001_initial.py
 news/migrations/0001_initial.py
 
 tweet/migrations/0001_initial.py
+
+__pycache__/
