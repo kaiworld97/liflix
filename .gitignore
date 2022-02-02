@@ -3,3 +3,13 @@ Mecab-ko-for-Google-Colab
 .idea
 
 db.sqlite3
+
+user/migrations/0001_initial.py
+
+movie/migrations/0001_initial.py
+
+news/migrations/0001_initial.py
+
+tweet/migrations/0001_initial.py
+
+__pycache__/
