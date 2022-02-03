@@ -36,4 +36,4 @@ class MovieModel(models.Model):
         return ast.literal_eval(json.loads(self.similar))
     trailer = models.URLField(max_length=256)
     poster = models.URLField(max_length=256)
-    story = models.TextField(max_length=256)
+    story = models.TextField()
