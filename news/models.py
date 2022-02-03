@@ -11,3 +11,4 @@ class NewsModel(models.Model):
         db_table = "news"
     title = models.CharField(max_length=256)
     content = models.TextField()
+    img = models.URLField()

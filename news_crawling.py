@@ -37,22 +37,35 @@ def make_urllist(page_num, code, date):
 idx2word = {'100': '정치', '101': '경제', '102': '사회', '103': '생활/문화', '104': '세계', '105': 'IT/과학'}
 
 
+# urllist 를 활용해서 크롤링 진행
 def make_data(urllist, code):
     text_list = []
     title_list = []
-
+    image_list = []
     # 각 기사 별 Url 이 urllist 에 담겨있으니,
     # Article 이라는 newspaper3k 내부 함수를 이용해서 크롤링 진행
     for url in urllist:
         article = Article(url, language='ko')
         article.download()
         article.parse()
+        headers = {
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36'}
+        response = requests.get(url, headers=headers)
+        html = response.text
+        soup = BeautifulSoup(html, 'html.parser')
+        img = soup.select('#articleBodyContents > span')
+        try:
+            src = img[0].find_all('img')[0]['src']
+        except:
+            continue
+
         # article.text 는 본문 // 제목을 가져오고 싶다면 article.title
         text_list.append(article.text)
         title_list.append(article.title)
+        image_list.append(src)
 
     # news 라는 열에다가 기사 본문을 추가해서 데이터프레임 생성
-    df = pd.DataFrame({'headline': title_list, 'news': text_list})
+    df = pd.DataFrame({'img': image_list, 'headline': title_list, 'news': text_list})
     # code 라는 열에다가는 기사 카테고리 추가
     df['code'] = idx2word[str(code)]
     return df
@@ -76,7 +89,7 @@ def make_total_data(page_num, code_list, date):
     return df
 
 
-# 1시간마다 크롤링 한 결과를 csv 파일로 저장
+# 현재 날짜 기사 받아오기
 today = datetime.today().strftime("%Y%m%d")
 code_list = [100, 101, 102, 103, 104, 105]
 df = make_total_data(5, code_list, today)
