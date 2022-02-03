@@ -5,6 +5,11 @@
     <title>NEWS</title>
 </head>
 <body>
-
+{% for news in news %}
+ <div>
+     {{ news.title }}
+     {{ news.content }}
+ </div>
+{% endfor %}
 </body>
 </html>

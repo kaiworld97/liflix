@@ -21,5 +21,5 @@ urlpatterns = [
     path('', include('user.urls')),
     # path('', include('tweet.urls')),
     # path('', include('movie.urls')),
-    # path('', include('news.urls')),
+    path('', include('news.urls')),
 ]
