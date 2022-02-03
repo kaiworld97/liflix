@@ -49,9 +49,10 @@ def make_data(urllist, code):
         article.parse()
         # article.text 는 본문 // 제목을 가져오고 싶다면 article.title
         text_list.append(article.text)
+        title_list.append(article.title)
 
     # news 라는 열에다가 기사 본문을 추가해서 데이터프레임 생성
-    df = pd.DataFrame({'news': text_list})
+    df = pd.DataFrame({'headline': title_list, 'news': text_list})
     # code 라는 열에다가는 기사 카테고리 추가
     df['code'] = idx2word[str(code)]
     return df
