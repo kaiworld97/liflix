@@ -49,7 +49,8 @@ def make_data(urllist, code):
         article.download()
         article.parse()
         headers = {
-            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36'}
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36'
+        }
         response = requests.get(url, headers=headers)
         html = response.text
         soup = BeautifulSoup(html, 'html.parser')

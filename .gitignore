@@ -7,5 +7,3 @@ db.sqlite3
 0001_initial.py
 
 news_data.csv
-
-news_db.py
