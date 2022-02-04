@@ -7,11 +7,11 @@
     <div class="container">
         <div class="wrap">
             <h2 class="title-center"> 회원가입 </h2>
-            <form class="form-area" method="post" action="/sign-up/">
+            <form class="form-area" method="post" action="/sign-up/" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group mt-2 mb-2">
-                    <label for="username">이름</label>
-                    <input type="text" class="form-control" id="username" name="username">
+                    <label for="email">이메일</label>
+                    <input type="email" class="form-control" id="email" name="email">
                 </div>
                 <div class="form-group mt-2 mb-2">
                     <label for="password">비밀번호</label>
@@ -23,19 +23,36 @@
                 </div>
                 <div class="form-group mt-2 mb-2">
                     <label for="bio">나를 한마디로</label>
-                    <input type="text" class="form-control" id="bio" name="bio">
+                    <input type="text" class="form-control" id="bio" name="bio" >
                 </div>
-                <hr>
-                {% if error %}
-                    <div class="alert alert-danger" role="alert">
-                        {{ error }}
+                <div class="form-group mt-2 mb-2">
+                    <label for="file">프로필사진</label>
+                    <input type="file" class="form-control" id="file" name="file" accept="image/*"
+                           onchange="setThumbnail(event);">
+                    <div id="img">
                     </div>
-                {% endif %}
-                <div style="float: right">
-                    <button type="submit" class="btn btn-primary">회원가입</button>
-                    <a href="/sign-in" class="btn btn-secondary">로그인 페이지로</a>
                 </div>
+                    {% if error %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endif %}
+                    <hr>
+                    <div style="float: right">
+                        <input type="submit" class="btn btn-primary">회원가입</input>
+                        <a href="/sign-in" class="btn btn-secondary">로그인 페이지로</a>
+                    </div>
             </form>
         </div>
     </div>
+    <script> function setThumbnail(event) {
+        var reader = new FileReader();
+        reader.onload = function (event) {
+            var img = document.createElement("img");
+            img.setAttribute("src", event.target.result);
+            document.querySelector("#img").innerHTML = '';
+            document.querySelector("#img").appendChild(img);
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    } </script>
 {% endblock %}

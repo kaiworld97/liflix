@@ -1,0 +1,6 @@
+{% autoescape off %}
+
+{{user.username}}님, 아래 링크를 클릭하여 계정을 활성화하세요:
+http://{{domain}}{% url 'activate' uid token %}
+
+{% endautoescape %}
