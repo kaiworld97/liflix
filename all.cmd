@@ -73,3 +73,10 @@ pip install gensim
 
 cls
 echo 설치를 완료했습니다.
+
+
+@REM 패키지 txt 만들기
+@REM pip freeze > requirements.txt
+
+@REM requirements.txt 대로 설치하기
+@REM pip install -r requirements.txt
