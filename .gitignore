@@ -4,6 +4,20 @@ Mecab-ko-for-Google-Colab
 
 db.sqlite3
 
-0001_initial.py
+user/migrations/
 
-news_data.csv
+movie/migrations/
+
+news/migrations/
+
+tweet/migrations/
+
+liflix/__pycache__/
+
+user/__pycache__/
+
+movie/__pycache__/
+
+news/__pycache__/
+
+tweet/__pycache__/
