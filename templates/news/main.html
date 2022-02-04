@@ -1,0 +1,108 @@
+{%  extends 'base.html' %}
+
+{% load static %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static '/css/main.css' %}">
+{% endblock %}
+
+{% block title %}
+Main
+{% endblock %}
+
+{% block content %}
+
+
+
+    <div id="main_wrap">
+        <div id="main_news">
+            <img src="{% static '/img/main_photo.jpg' %}">
+            <!-- <img src={{news_img}}> -->
+            <div id="main_title">
+                <p>[오미크론대응] 29일부터 코로나검사 치료체계 전환</p></div>
+                <!-- <p>{{news_headline}}</p></div> -->
+            </div>
+    </div>
+
+    <div id="news_area">
+        <p class="category">정치</p>
+        <div class="news_line">
+            <div class="news_coma">
+                <img src="{% static '/img/20.jpg' %}" alt="img">
+                <span>뉴스헤드라인이들어갑니다</span>
+            </div>
+            <div class="news_coma">
+                <img src="{% static '/img/20.jpg' %}" alt="img">
+                <span>뉴스헤드라인이들어갑니다</span>
+            </div>
+            <div class="news_coma">
+                <img src="{% static '/img/20.jpg' %}" alt="img">
+                <span>뉴스헤드라인이들어갑니다</span>
+            </div>
+            <div class="news_coma">
+                <img src="{% static '/img/20.jpg' %}" alt="img">
+                <span>뉴스헤드라인이들어갑니다</span>
+            </div>
+            <div class="news_coma">
+                <img src="{% static '/img/20.jpg' %}" alt="img">
+                <span>뉴스헤드라인이들어갑니다</span>
+            </div>
+            <div class="news_coma">
+                <img src="{% static '/img/20.jpg' %}" alt="img">
+                <span>뉴스헤드라인이들어갑니다</span>
+            </div>
+
+        </div>
+
+        <dialog id="news_detail" class="modal">
+            <div class="modal_wrap">
+                <button>&times;</button>
+                <div class="modal_box">
+                    <div class="details">
+                        <img src="" alt="">
+                        <span></span>
+                        <p>기사내용{{news_content}}</p>
+                    </div>
+                    <div class="movie_recommend">
+                        <h2>
+                             현실이 더 영화 같다면?
+                        </h2>
+                        <p>
+                            이 기사를 본 당신에게...
+                        </p>
+                    </div>
+                    <div class="reco_movies">
+                        <img src="{% static '/img/contasion.jpg' %}">
+                        <img src="{% static '/img/gamgi.jpg' %}">
+                        <img src="{% static '/img/busan.jpg' %}">
+                        <img src="{% static '/img/exit.jpg' %}">
+                    </div>
+                </div>
+
+            </div>
+        </dialog>
+
+{#        <!-- </div>#}
+{#        {% news_category %}#}
+{#        <div class="news_list">#}
+{#            {% for row in news_img %}#}
+{#            {% set count = [1] %}#}
+{#            <div class="news_coma">#}
+{#            {% set newsimg = row.news_img %}#}
+{#            {% set title = row.news_headline %}#}
+{#            </div>#}
+{#            {% set __ = count.append(1) %}#}
+{#            {% end for %}#}
+{##}
+{#        </div> -->#}
+
+        </div>
+
+{% endblock %}
+
+{% block js %}
+<script  type="text/javascript" src="{% static '/js/main.js' %}"></script>
+{% endblock %}
+
+
+

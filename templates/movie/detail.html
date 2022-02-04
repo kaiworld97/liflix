@@ -1,31 +1,76 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
-    detail
+    Movies
 {% endblock %}
-{% load static %}
-{% block static %}
+
+
+    {% block static %}
     <link rel="stylesheet" href="{% static 'css/movie_detail.css' %}">
-{% endblock %}
+    {% endblock %}
+
 {% block content %}
 <div>
-{{ movie.code }}
-{{ movie.title }}
- {% for a in movie.genre %}
-    {{ a }}
-{% endfor %}
-{{ movie.director }}
- {% for a in movie.actor %}
-     {{ a }}
-{% endfor %}
-<img class="detail_poster" src="{{ movie.poster }}">
-    <iframe class="_videoPlayer" src='{{ movie.trailer }}' id="videoPlayer" name="videoPlayer" width="640" height="480" frameborder="0" scrolling="no" allowfullscreen="“true”"></iframe>
+    <div class="movieinfo">
+        영화코드:{{ movie.code }}
+        영화제목:{{ movie.title }}
 
-{{ movie.story }}
- {% for a in movie.similar %}
-     {{ a.code }}
-     {{ a.title }}
-     <img class="similar_poster" src="{{ a.poster }}">
-    {% endfor %}
+        {% for genre in movie.genre %}
+            장르:{{ genre }}
+
+        {% endfor %}
+
+        감독:{{ movie.director }}
+
+        {% for actor in movie.actor %}
+            배우:{{ actor }}
+        {% endfor %}
+    </div>
+
+
+    <iframe class="_videoPlayer" src='{{ movie.trailer }}' id="videoPlayer" name="videoPlayer"
+            width="1280" height="960"
+            frameBorder=0 framespacing=0 marginheight=0 marginwidth=0
+            scrolling=no vspace=0 allowfullscreen="“true”">
+
+    </iframe>
+    <div class="main_movie">
+        <img class="detail_poster" src="{{ movie.poster }}">
+
+        <span class="title">{{ movie.title }}</span>
+        <span>
+            {% for genre in movie.genre %}
+                {{ genre }}
+            {% endfor %}
+        </span>
+        <span>{{ movie.director }}</span>
+        <span>
+            배우:
+            {% for actor in movie.actor %}
+                {{ actor }},
+            {% endfor %}
+        </span>
+        <span class="story">{{ movie.story }}</span>
+    </div>
+
+
+
+<div class="alikemovies">
+     {% for s in movie.similar %}
+         <div class="alike">
+         <img class="similar_poster" src="{{ s.poster }}">
+         <span class="aliketitle">
+        {{ s.title }}
+         </span>
+         </div>
+     {% endfor %}
+</div>
+
+
+
+
+
+
 </div>
 {% endblock %}

@@ -1,58 +1,69 @@
-{% extends 'base.html' %}
+
+{%  extends 'base.html' %}
+{% load static %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static '/css/signup.css' %}">
+{% endblock %}
 
 {% block title %}
-    회원가입
+SignUp
 {% endblock %}
+
 {% block content %}
-    <div class="container">
-        <div class="wrap">
-            <h2 class="title-center"> 회원가입 </h2>
-            <form class="form-area" method="post" action="/sign-up/" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="form-group mt-2 mb-2">
-                    <label for="email">이메일</label>
-                    <input type="email" class="form-control" id="email" name="email">
+    <section class="login_wrap">
+        <p>Sign up</p>
+        <div id="profile">
+            <form method="post" enctype="multipart/form-data" id="frofileform">
+                <div id="profileimg">
+
                 </div>
-                <div class="form-group mt-2 mb-2">
-                    <label for="password">비밀번호</label>
-                    <input type="password" class="form-control" id="password" name="password">
+                <div id="btn" class="choicebtn" for="selectFile">
+                    <label for="selectFile">
+                        프로필선택
+                    </label>
                 </div>
-                <div class="form-group mt-2 mb-2">
-                    <label for="password2">비밀번호 확인</label>
-                    <input type="password" class="form-control" id="password2" name="password2">
-                </div>
-                <div class="form-group mt-2 mb-2">
-                    <label for="bio">나를 한마디로</label>
-                    <input type="text" class="form-control" id="bio" name="bio" >
-                </div>
-                <div class="form-group mt-2 mb-2">
-                    <label for="file">프로필사진</label>
-                    <input type="file" class="form-control" id="file" name="file" accept="image/*"
-                           onchange="setThumbnail(event);">
-                    <div id="img">
-                    </div>
-                </div>
-                    {% if error %}
-                        <div class="alert alert-danger" role="alert">
-                            {{ error }}
-                        </div>
-                    {% endif %}
-                    <hr>
-                    <div style="float: right">
-                        <input type="submit" class="btn btn-primary">회원가입</input>
-                        <a href="/sign-in" class="btn btn-secondary">로그인 페이지로</a>
-                    </div>
+                <input type="file" id="selectFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
             </form>
         </div>
-    </div>
-    <script> function setThumbnail(event) {
-        var reader = new FileReader();
-        reader.onload = function (event) {
-            var img = document.createElement("img");
-            img.setAttribute("src", event.target.result);
-            document.querySelector("#img").innerHTML = '';
-            document.querySelector("#img").appendChild(img);
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    } </script>
+        <form class="login_form">
+          <div class="input_email">
+            <input type="text"  id="id" name="id" autocomplete="off" required>
+            <label for="id" >
+                E-mail
+            </label>
+          </div>
+          <div class="input_wrap">
+            <input type="password" name="pw" id="pw" autocomplete="off" required>
+            <label for="pw" >Password</label>
+          </div>
+          <div class="input_wrap">
+            <input type="password" name="pw" id="pw" autocomplete="off" required>
+            <label for="pw" >Password</label>
+          </div>
+          <div class="input_wrap">
+            <input type="text" name="birth" id="birth" autocomplete="off" required>
+            <label for="birth" >YYYY/MM/DD</label>
+          </div>
+          <div class="input_wrap">
+            <input type="text" name="nick" id="nick" autocomplete="off" required>
+            <label for="nick" >Your Name</label>
+          </div>
+          <div class="input_wrap">
+            <input type="text" name="textarea" id="textarea" autocomplete="off" required>
+            <label for="textarea" >Introduction...</label>
+          </div>
+
+          <div class="input_wrap">
+              <button type="submit" class="btn btn-primary">Sign Up</button>
+          </div>
+
+        </form>
+    </section>
+
 {% endblock %}
+{% block js %}
+<script  type="text/javascript" src="{% static '/js/signup.js' %}"></script>
+{% endblock %}
+
+

@@ -1,17 +1,130 @@
-.title-center {
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/*헤더*/
+
+.headerwrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.header{
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    color: white;
+    margin: 20px 10px 10px;
+    align-items: center;
+    font-size: 20px;
+    width: 100vw;
+}
+
+.nav{
+    display: flex;
+    margin-left : 10px;
+    margin-top: -7px;
+}
+.nav_items{
+    margin-left: 20px;
+    cursor: pointer;
+}
+.menu{
+    display: flex;
+    margin-left: auto;
+    margin-top: -10px;
+}
+.menu_items{
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.logo img{
+    height: 35px;
+    width: 100px;
+    cursor: pointer;
+}
+
+input#searchbar {
+    height: 25px;
+    outline: none;
+    border: none;
+    background-color: dimgrey;
+    width: 250px;
+    color: white;
+    font-size: large;
+    margin-right: 10px;
+    padding: 0 5px 0 5px;
+}
+
+
+#dropmenu {
+    position: absolute;
+    font-size: 15px;
+    background-color: gray;
+    border: none;
+    padding: 10px;
+    right: 0px;
+    width: 162px;
     text-align: center;
-    margin-top: 50px;
+    z-index: 1;
+    margin-top: 11px;
+    cursor: pointer;
 }
 
-.wrap {
-    width: 400px;
-    margin: 0 auto;
-}
 
-.form-area {
-    margin-top: 25px;
-}
+hr{border:none;}
+.drop{display: none;}
+.active {display: block;}
 
-.timeline-container {
-    margin-top: 25px
-}
+
+
+/* 헤더 */
+
+
+
+
+
+
+/*@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');*/
+
+/**{*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*body{*/
+/*    font-family: 'Noto Sans KR', sans-serif;*/
+/*    background-color: black;*/
+/*    color: white;*/
+/*}*/
+
+
+
+/*.title-center {*/
+/*    text-align: center;*/
+/*    margin-top: 50px;*/
+/*}*/
+
+/*.wrap {*/
+/*    width: 400px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*.form-area {*/
+/*    margin-top: 25px;*/
+/*}*/
+
+/*.timeline-container {*/
+/*    margin-top: 25px*/
+/*}*/
