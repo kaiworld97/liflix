@@ -18,7 +18,9 @@ with open(CSV_PATH_PRODUCTS, encoding='UTF8') as in_file:
         newsModel = NewsModel()
         newsModel.img = row[0]
         newsModel.title = row[1]
-        newsModel.content = row[2]
+        newsModel.content = row[3]
+        newsModel.code = row[4]
+        newsModel.similar = row[2]
         newsModel.save()
 
 # json화 된 파일 불러오기
