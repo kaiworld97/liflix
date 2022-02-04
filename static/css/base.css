@@ -1,0 +1,17 @@
+.title-center {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.wrap {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.form-area {
+    margin-top: 25px;
+}
+
+.timeline-container {
+    margin-top: 25px
+}
