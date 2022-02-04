@@ -20,15 +20,23 @@ class NewsModel(models.Model):
     code = models.CharField(max_length=256)
 
     def set_code(self, x):
-        self.genre = json.dumps(x)
+        self.code = json.dumps(x)
 
     def get_code(self):
-        return ast.literal_eval(json.loads(self.genre))
+        return ast.literal_eval(json.loads(self.code))
 
-    similar = models.CharField(max_length=256)
+    similar_news = models.TextField()
 
-    def set_similar(self, x):
-        self.genre = json.dumps(x)
+    def set_similar_news(self, x):
+        self.similar_news = json.dumps(x)
 
-    def get_similar(self):
-        return ast.literal_eval(json.loads(self.genre))
+    def get_similar_news(self):
+        return ast.literal_eval(json.loads(self.similar_news))
+
+    similar_movie = models.CharField(max_length=256)
+
+    def set_similar_movie(self, x):
+        self.similar_movie = json.dumps(x)
+
+    def get_similar_movie(self):
+        return ast.literal_eval(json.loads(self.similar_movie))
