@@ -11,47 +11,6 @@ SignUp
 {% endblock %}
 
 {% block content %}
-<<<<<<< Updated upstream
-    <div class="container">
-        <div class="wrap">
-            <h2 class="title-center"> 회원가입 </h2>
-            <form class="form-area" method="post" action="/sign-up/" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="form-group mt-2 mb-2">
-                    <label for="email">이메일</label>
-                    <input type="email" class="form-control" id="email" name="email">
-                </div>
-                <div class="form-group mt-2 mb-2">
-                    <label for="password">비밀번호</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                </div>
-                <div class="form-group mt-2 mb-2">
-                    <label for="password2">비밀번호 확인</label>
-                    <input type="password" class="form-control" id="password2" name="password2">
-                </div>
-                <div class="form-group mt-2 mb-2">
-                    <label for="bio">나를 한마디로</label>
-                    <input type="text" class="form-control" id="bio" name="bio" >
-                </div>
-                <div class="form-group mt-2 mb-2">
-                    <label for="file">프로필사진</label>
-                    <input type="file" class="form-control" id="file" name="file" accept="image/*"
-                           onchange="setThumbnail(event);">
-                    <div id="img">
-                    </div>
-                </div>
-                    {% if error %}
-                        <div class="alert alert-danger" role="alert">
-                            {{ error }}
-                        </div>
-                    {% endif %}
-                    <hr>
-                    <div style="float: right">
-                        <input type="submit" class="btn btn-primary">회원가입</input>
-                        <a href="/sign-in" class="btn btn-secondary">로그인 페이지로</a>
-                    </div>
-=======
-
     <section class="login_wrap">
         <p>Sign up</p>
         <div id="profile">
@@ -65,26 +24,8 @@ SignUp
                     </label>
                 </div>
                 <input type="file" id="selectFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
-
->>>>>>> Stashed changes
             </form>
-
         </div>
-<<<<<<< Updated upstream
-    </div>
-    <script> function setThumbnail(event) {
-        var reader = new FileReader();
-        reader.onload = function (event) {
-            var img = document.createElement("img");
-            img.setAttribute("src", event.target.result);
-            document.querySelector("#img").innerHTML = '';
-            document.querySelector("#img").appendChild(img);
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    } </script>
-{% endblock %}
-=======
-
         <form class="login_form">
           <div class="input_email">
             <input type="text"  id="id" name="id" autocomplete="off" required>
@@ -126,49 +67,3 @@ SignUp
 {% endblock %}
 
 
-
-
-
-
-{#{% extends 'base.html' %}#}
-{##}
-{#{% block title %}#}
-{#    회원가입#}
-{#{% endblock %}#}
-{#{% block content %}#}
-{#    <div class="container">#}
-{#        <div class="wrap">#}
-{#            <h2 class="title-center"> 회원가입 </h2>#}
-{#            <form class="form-area" method="post" action="/sign-up/">#}
-{#                {% csrf_token %}#}
-{#                <div class="form-group mt-2 mb-2">#}
-{#                    <label for="username">이름</label>#}
-{#                    <input type="text" class="form-control" id="username" name="username">#}
-{#                </div>#}
-{#                <div class="form-group mt-2 mb-2">#}
-{#                    <label for="password">비밀번호</label>#}
-{#                    <input type="password" class="form-control" id="password" name="password">#}
-{#                </div>#}
-{#                <div class="form-group mt-2 mb-2">#}
-{#                    <label for="password2">비밀번호 확인</label>#}
-{#                    <input type="password" class="form-control" id="password2" name="password2">#}
-{#                </div>#}
-{#                <div class="form-group mt-2 mb-2">#}
-{#                    <label for="bio">나를 한마디로</label>#}
-{#                    <input type="text" class="form-control" id="bio" name="bio">#}
-{#                </div>#}
-{#                <hr>#}
-{#                {% if error %}#}
-{#                    <div class="alert alert-danger" role="alert">#}
-{#                        {{ error }}#}
-{#                    </div>#}
-{#                {% endif %}#}
-{#                <div style="float: right">#}
-{#                    <button type="submit" class="btn btn-primary">회원가입</button>#}
-{#                    <a href="/sign-in" class="btn btn-secondary">로그인 페이지로</a>#}
-{#                </div>#}
-{#            </form>#}
-{#        </div>#}
-{#    </div>#}
-{#{% endblock %}#}
->>>>>>> Stashed changes

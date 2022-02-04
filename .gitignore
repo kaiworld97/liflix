@@ -21,3 +21,7 @@ movie/__pycache__/
 news/__pycache__/
 
 tweet/__pycache__/
+
+sentence_model
+
+fasttext_movie.model
