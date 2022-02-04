@@ -1,0 +1,110 @@
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("https://assets.nflxext.com/ffe/siteui/vlv3/8f3e38a9-1c2c-4818-99b5-2d9bdff9ad1d/dd8cc819-8e2f-40ef-ab98-b10500bd9703/KR-ko-20220124-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+    background-size: cover;
+}
+
+body::before{
+    content:"";
+    position: absolute; z-index: 1;
+    top:0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0,0,0,.5);
+}
+
+.login_wrap{
+    position: relative;
+    z-index: 2;
+    max-width: 550px;
+    height: 730px;
+    padding: 5%;
+    background-color: rgba(0,0,0,.75);
+}
+
+.login_wrap p{
+    font-size: 32px; color: white;
+}
+
+.login_form{
+    width: 350px;
+    margin-top: 30px;
+}
+
+.login_form input{
+    height: 50px;
+    width: 100%;
+    border-radius: 3px;
+    color: white;
+    background: #333333;
+    padding-left: 15px;
+    padding-top: 15px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.input_wrap{
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input_wrap label{
+    color: aliceblue;
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-size: 20px;
+    opacity: 40%;
+}
+
+.input_wrap input:focus + label,
+.input_wrap input:valid + label{
+    top: 0;
+    font-size: 12px;
+}
+
+
+
+.login_form button{
+    height: 50px;
+    width: 100%;
+    margin-top: 40px;
+    background: #d30000;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 17px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.support{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.rememberme{
+    display: flex;
+    align-items: center;
+}
+
+.support input{
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+.signup span{ color: white;
+    cursor: pointer;}
+
+.signup {
+    margin-top: 200px;
+    display: flex;
+    justify-content: flex-end;
+}
+
