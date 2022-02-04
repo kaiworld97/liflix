@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'tweet',
     'user',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
