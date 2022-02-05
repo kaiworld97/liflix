@@ -15,8 +15,8 @@ import os
 import json
 
 pymysql.install_as_MySQLdb()
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -140,9 +140,9 @@ AUTH_USER_MODEL = 'user.UserModel'
 
 
 
-EMAIL_HOST = 'smtp.gmail.com'  # 메일 호스트 서버
-EMAIL_PORT = '587'  # 서버 포트
-EMAIL_HOST_USER = 'seojh8910@gmail.com'  # 우리가 사용할 Gmail
-EMAIL_HOST_PASSWORD = 'sparta10jo'  # 우리가 사용할 Gmail p
-EMAIL_USE_TLS = True  # TLS 보안 설정
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # 응답 메일 관련 설정
+# EMAIL_HOST = 'smtp.gmail.com'  # 메일 호스트 서버
+# EMAIL_PORT = '587'  # 서버 포트
+# EMAIL_HOST_USER = 'seojh8910@gmail.com'  # 우리가 사용할 Gmail
+# EMAIL_HOST_PASSWORD = 'sparta10jo'  # 우리가 사용할 Gmail p
+# EMAIL_USE_TLS = True  # TLS 보안 설정
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # 응답 메일 관련 설정
