@@ -48,8 +48,8 @@ INSTALLED_APPS = [
     'news',
     'tweet',
     'user',
+    'storages',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
