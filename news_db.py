@@ -2,6 +2,7 @@ import os
 import django
 import csv
 import sys
+import random
 
 # 프로젝트 이름.settings
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "liflix.settings")
@@ -30,3 +31,9 @@ from news.models import *  # django.setup() 이후에 임포트해야 오류가 
 #     for i in hi.get_similar_movie():
 #         print(type(i))
 # view_news_data()
+
+def load_cate():
+    news = random.sample(list(NewsModel.objects.all()),3)
+    print(news)
+#
+load_cate()

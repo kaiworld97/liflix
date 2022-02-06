@@ -18,6 +18,7 @@
               slidesToShow: 6,
               slidesToScroll: 1,
               autoplay: true,
+              infinite: true,
               autoplaySpeed: 2000,
             });
         </script>
@@ -44,9 +45,9 @@
     <iframe class="_videoPlayer" src='{{ movie.trailer }}' id="videoPlayer" name="videoPlayer"
             width="1280" height="960"
             frameBorder=0 framespacing=0 marginheight=0 marginwidth=0
-            scrolling=no vspace=0 allowfullscreen="“true”">
+            scrolling=no vspace=0 allowfullscreen="“true”"></iframe>
     </div>
-    </iframe>
+
     <div class="main_movie">
         <img class="detail_poster" src="{{ movie.poster }}">
 
