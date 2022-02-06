@@ -1,6 +1,6 @@
-.movie_poster{
-    width: 400px;
-    height: 600px;
+.movie_poster {
+    width: 20vw;
+    height: 30vw;
 }
 .poster_container{
     display: flex;

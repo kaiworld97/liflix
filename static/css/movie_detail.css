@@ -20,22 +20,23 @@ body{
 
 
 .detail_poster {
-    width: 40vw;
-    height: 60vw;
+    width: 20vw;
+    height: 30vw;
 }
 
 .similar_poster{
-    width: 200px;
-    height: 300px;
+    width: 10vw;
+    height: 15vw;
 }
 
-._videoPlayer{
-    /*width: 100vw;*/
+._videoPlayer {
+    width: 65vw;
+    height: 40vw;
 }
 .movie_trailer{
     margin: auto;
     text-align: center;
-    margin-top: -2%;
+    margin-top: 5%;
 }
 .movieinfo{
     visibility: hidden;
