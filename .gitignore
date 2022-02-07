@@ -26,12 +26,9 @@ sentence_model
 
 fasttext_movie.model
 
+config
+
 movie_movie.csv
 
 news_news.csv
 
-news_db.py
-
-make_movie_db.py
-
-news_data.csv
