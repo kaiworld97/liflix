@@ -40,3 +40,17 @@ $(function(){
         }
       });
     });
+
+$(document).ready(function(){
+
+	$('.nav .sub_1').hide();
+
+	$('.nav_item').mouseover(function(){
+		$('.sub_1').slideDown();
+
+	});
+	$('.nav_item').mouseleave(function(){
+		$('.sub_1').hide();
+	});
+});
+
