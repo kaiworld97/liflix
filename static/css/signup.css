@@ -75,7 +75,7 @@ body::before{
     cursor: pointer;
 }
 
-/* 이메일인증input */
+/* �대찓�쇱씤利쓎nput */
 .input_email{
     display: flex;
     align-items: center;
@@ -170,15 +170,20 @@ body::before{
 }
 
 
-/* 회원가입 */
+/* �뚯썝媛��� */
 #profile{
     width: 100%;
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
 }
 
-/* #chooseFile{
-    visibility: hidden;
-} */
+.profilewrap {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 
@@ -191,10 +196,10 @@ body::before{
 #profileimg{
     width: 100px;
     height: 100px;
-    background-color: coral;
+    /*background-color: coral;*/
     margin-bottom: 10px;
     border-radius: 10%;
-    background-image: url("/static/img/profile_default.jpg");
+    background-image: url("/liflix/static/img/profile_default.jpg");
     background-size: 100%;
 }
 
@@ -223,4 +228,44 @@ input#selectFile {
 }
 div#verify {
     width: 50px;
+}
+
+
+
+/*input[type=date]::before {*/
+/*    content: attr(date-placeholder );*/
+/*    width: 100%;*/
+/*input[type=date]::focus::before,*/
+/*input[type=date]::valid::before{*/
+/*    display:none*/
+/*}*/
+
+
+
+/*input[type="date"]:in-range::-webkit-datetime-edit-year-field,*/
+/*input[type="date"]:in-range::-webkit-datetime-edit-month-field,*/
+/*input[type="date"]:in-range::-webkit-datetime-edit-day-field {*/
+/*    color: transparent;*/
+/*}*/
+
+
+/*3*/
+input[type="date"]::before {
+  content: attr(placeholder);
+  position: absolute;
+  color: #999999;
+}
+
+input[type="date"] {
+  color: transparent;
+}
+
+input[type="date"]:focus,
+input[type="date"]:valid {
+  color: #666666;
+}
+
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {
+  content: "";
 }

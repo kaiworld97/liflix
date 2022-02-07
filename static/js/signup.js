@@ -19,6 +19,7 @@ function loadFile(input) {
     let container = document.getElementById("profileimg");
 
     container.style.width = "100px";
+    container.innerHTML = '';
     container.appendChild(file_img);
 
 

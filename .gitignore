@@ -25,3 +25,5 @@ tweet/__pycache__/
 sentence_model
 
 fasttext_movie.model
+
+config
