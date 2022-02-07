@@ -7,16 +7,12 @@ body{
     background: url("https://assets.nflxext.com/ffe/siteui/vlv3/8f3e38a9-1c2c-4818-99b5-2d9bdff9ad1d/dd8cc819-8e2f-40ef-ab98-b10500bd9703/KR-ko-20220124-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
     background-size: cover;
 }
-
-
 body::before{
     content:"";
     position: absolute; z-index: 1;
     top:0; right: 0; bottom: 0; left: 0;
     background-color: rgba(0,0,0,.5);
 }
-
-
 .login_wrap{
     position: relative;
     z-index: 2;
@@ -27,16 +23,13 @@ body::before{
     background-color: rgba(0,0,0,.75);
     top: 5vh;
 }
-
 .login_wrap p{
     font-size: 32px; color: white;
 }
-
 .login_form{
     width: 350px;
     margin-top: 5px;
 }
-
 .login_form input{
     height: 50px;
     width: 100%;
@@ -49,13 +42,10 @@ body::before{
     outline: none;
     box-sizing: border-box;
 }
-
-
 .input_wrap{
     margin-bottom: 20px;
     position: relative;
 }
-
 .input_wrap label{
     color: aliceblue;
     position: absolute;
@@ -64,18 +54,16 @@ body::before{
     font-size: 18px;
     opacity: 40%;
 }
-
 .input_wrap input:focus + label,
 .input_wrap input:valid + label{
     top: 0;
     font-size: 12px;
 }
-
 .input_wrap button{
     cursor: pointer;
 }
 
-/* �대찓�쇱씤利쓎nput */
+
 .input_email{
     display: flex;
     align-items: center;
@@ -91,16 +79,12 @@ body::before{
     border: none;
     outline: none;
     box-sizing: border-box;
-
 }
-
 .input_email div{
     color: white;
     width: 50px;
     position: absolute;
     right: 0%;
-
-
 }
 .input_email span{
     background-color: red;
@@ -108,13 +92,10 @@ body::before{
     border-radius: 2px;
     cursor: pointer;
 }
-
-
 .input_email{
     margin-bottom: 20px;
     position: relative;
 }
-
 .input_email label{
     color: aliceblue;
     position: absolute;
@@ -123,14 +104,11 @@ body::before{
     font-size: 18px;
     opacity: 40%;
 }
-
 .input_email input:focus + label,
 .input_email input:valid + label{
     top: 0;
     font-size: 12px;
 }
-
-
 .login_form button{
     height: 50px;
     width: 100%;
@@ -142,35 +120,30 @@ body::before{
     font-size: 17px;
     border-radius: 3px;
 }
-
 .support{
     color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-
 .rememberme{
     display: flex;
     align-items: center;
 }
-
 .support input{
     width: 15px;
     height: 15px;
     margin-right: 5px;
 }
-
 .signup span{ color: white; }
-
 .signup {
     margin-top: 200px;
     display: flex;
     justify-content: flex-end;
 }
 
+/* 회원가입 */
 
-/* �뚯썝媛��� */
 #profile{
     width: 100%;
     margin-top: 10px;
@@ -184,15 +157,10 @@ body::before{
     flex-direction: column;
     align-items: center;
 }
-
-
-
 .choicebtn label {
-
     color: white;
     cursor: pointer;
 }
-
 #profileimg{
     width: 100px;
     height: 100px;
@@ -202,54 +170,27 @@ body::before{
     background-image: url("/liflix/static/img/profile_default.jpg");
     background-size: 100%;
 }
-
-
 form#frofileform {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 input#selectFile {
     visibility: hidden;
 }
-
 .img{
     border-radius: 10%;
 }
-
 #verify span{
     color: white;
 }
-
 .login_form:nth-child(1){
     display: flex;
-
 }
 div#verify {
     width: 50px;
 }
 
-
-
-/*input[type=date]::before {*/
-/*    content: attr(date-placeholder );*/
-/*    width: 100%;*/
-/*input[type=date]::focus::before,*/
-/*input[type=date]::valid::before{*/
-/*    display:none*/
-/*}*/
-
-
-
-/*input[type="date"]:in-range::-webkit-datetime-edit-year-field,*/
-/*input[type="date"]:in-range::-webkit-datetime-edit-month-field,*/
-/*input[type="date"]:in-range::-webkit-datetime-edit-day-field {*/
-/*    color: transparent;*/
-/*}*/
-
-
-/*3*/
 input[type="date"]::before {
   content: attr(placeholder);
   position: absolute;
@@ -269,3 +210,4 @@ input[type="date"]:focus::before,
 input[type="date"]:valid::before {
   content: "";
 }
+
