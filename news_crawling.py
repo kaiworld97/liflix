@@ -56,7 +56,7 @@ def make_data(urllist, code):
         soup = BeautifulSoup(html, 'html.parser')
         img = soup.select('#articleBodyContents > span')
         try:
-            src = img[0].find_all('img')[0]['src']
+            src = img[0].find_all('img')[0]['src'] # select, find_all list형태로 반환됨으로 [0]으로 리스트를 제거함
         except:
             continue
 

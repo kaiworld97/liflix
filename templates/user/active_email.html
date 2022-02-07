@@ -1,6 +1,8 @@
+
 {% autoescape off %}
 
-{{user.username}}님, 아래 링크를 클릭하여 계정을 활성화하세요:
+{{user.user_nick}}님, 안녕하세요. liflix 입니다.
+계정을 활성화하시려면 아래 링크를 클릭해주세요.:
 http://{{domain}}{% url 'activate' uid token %}
 
 {% endautoescape %}

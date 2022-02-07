@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    업데이트
+{% endblock %}
+{% block content %}
+
+
+<form class="mt-3" action="{% url 'update' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div>
+    <div>
+      <img src="https://sparttabucket.s3.ap-northeast-2.amazonaws.com/{{user.user_img}}">
+    </div>
+    <input type="file" name="img">
+    <input type="text" name="nick">
+    <input type="text" name="bio">
+    <input type="date" name="birth">
+  </div>
+
+
+  <button type="submit" value="회원수정">수정하기</button>
+</form>
+
+
+{% endblock %}
