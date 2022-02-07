@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import MovieModel
+from news.models import NewsModel
 import pandas as pd
 import ast
 import requests
@@ -8,8 +9,17 @@ import json
 
 
 def movie_view(request, id):
-
-    return render(request, 'movie/list.html')
+    news = NewsModel.objects.get(id=id)
+    news_similar_movie = [i for i in news.get_similar_movie()]
+    movie_list = []
+    for i in news_similar_movie:
+        movie_info = {}
+        movie = MovieModel.objects.get(code=i)
+        movie_info['code'] = movie.code
+        movie_info['title'] = movie.title
+        movie_info['poster'] = movie.poster
+        movie_list.append(movie_info)
+    return render(request, 'movie/list.html', {'movie_list': movie_list})
 
 
 def movie_detail(request, id):

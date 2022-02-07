@@ -27,3 +27,8 @@ sentence_model
 fasttext_movie.model
 
 config
+
+movie_movie.csv
+
+news_news.csv
+

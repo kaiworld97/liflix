@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
+html{
+    background-color: black;
+}
+
 
 *{
     margin: 0;
@@ -10,6 +14,9 @@ body{
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+.margin_auto{
+    margin: auto;
+}
 /*헤더*/
 
 .headerwrap {
@@ -23,10 +30,10 @@ body{
     z-index: 1;
     display: flex;
     color: white;
-    margin: 20px 10px 10px;
+    margin: 1% 1%;
     align-items: center;
     font-size: 20px;
-    width: 100vw;
+    width: 99%;
 }
 
 .nav{
@@ -35,6 +42,7 @@ body{
     margin-top: -7px;
 }
 .nav_items{
+    padding: 14px 16px;
     margin-left: 20px;
     cursor: pointer;
 }
@@ -47,7 +55,47 @@ body{
     margin-right: 20px;
     cursor: pointer;
 }
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
 
+.dropdown .dropbtn {
+  font-size: 20px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  margin-left: 20px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 .logo img{
     height: 35px;
     width: 100px;

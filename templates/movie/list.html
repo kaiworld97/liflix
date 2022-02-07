@@ -3,9 +3,35 @@
 {% block title %}
     movies
 {% endblock %}
+{% load static %}
+    {% block static %}
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+        <link rel="stylesheet" href="{% static 'css/movie_list.css' %}">
+    {% endblock %}
+    {% block js %}
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script>
+            $('.poster_container').slick({
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              infinite: true,
+              autoplay: true,
+              autoplaySpeed: 2000,
+            });
 
+        </script>
+    {% endblock %}
 {% block content %}
-<div>
-movie_list~
+<div class="poster_container">
+{% for movie in movie_list %}
+    <div class="poster_wrapper">
+    <a href="detail/{{ movie.code }}">
+    <img class="movie_poster" src="{{ movie.poster }}"><br>
+    </a>
+    {{ movie.title }}<br>
+    </div>
+{% endfor %}
 </div>
+
 {% endblock %}

@@ -36,7 +36,7 @@ div.main_title {
 /* 뉴스리스트부분 */
 .category{
     color: white;
-    margin: 20px 10px 20px 10px;
+    margin: 20px 10px 20px 12%;
     font-size: 30px;
 }
 .news_line{
@@ -57,12 +57,15 @@ div.main_title {
 }
 .news_wrapper{
     display: flex;
-    padding: 0 10%;
+    padding: 2%;
 }
 
 /* 뉴스리스트부분 */
 #news_area{
     margin: 3% 5% 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .category_img{
     width: 20vw;
@@ -106,7 +109,7 @@ div.main_title {
     margin: 2% 1% 2% 1%;
 }
 
-dialog button {
+button {
     position: absolute;
     top: 3rem;
     right: 3rem;

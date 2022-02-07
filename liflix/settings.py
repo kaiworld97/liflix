@@ -155,3 +155,4 @@ EMAIL_HOST_USER = secrets['mail']['EMAIL_HOST_USER']  # 우리가 사용할 Gmai
 EMAIL_HOST_PASSWORD = secrets['mail']['EMAIL_HOST_PASSWORD']  # 우리가 사용할 Gmail p
 EMAIL_USE_TLS = True  # TLS 보안 설정
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # 응답 메일 관련 설정
+

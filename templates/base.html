@@ -11,16 +11,26 @@
 </head>
 
 <body>
-    <div class="headerwrap">
+<div class="headerwrap">
     <div class="header">
         <div class="logo">
             <img src="/static/img/liflixlogo.png" alt="logo">
         </div>
         <div class="nav">
-            <div class="nav_items">홈</div>
-            <div class="nav_items">카테고리</div>
-            <div class="nav_items">내가본뉴스</div>
-            <div class="nav_items">자유게시판</div>
+            <div class="nav_items" onclick="location.href = '/'">홈</div>
+            <div class="dropdown">
+                <button class="dropbtn">카테고리
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">IT/과학</a>
+                    <a href="#">세계</a>
+                    <a href="#">사회</a>
+                    <a href="#">경제</a>
+                    <a href="#">생활/문화</a>
+                    <a href="#">정치</a>
+                </div>
+            </div>
+            <div class="nav_items" onclick="location.href = '/'">자유게시판</div>
         </div>
         <div class="menu">
             <div class="search">
@@ -39,15 +49,11 @@
         </div>
 
     </div>
-    </div>
-
-
+</div>
 
 {% block content %}
-
 {% endblock %}
-
-<script  type="text/javascript" src="{% static '/js/base.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/base.js' %}"></script>
 {% block js %}
 {% endblock %}
 </body>
