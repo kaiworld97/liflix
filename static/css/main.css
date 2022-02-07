@@ -106,7 +106,7 @@ div.main_title {
     margin: 2% 1% 2% 1%;
 }
 
-button {
+dialog button {
     position: absolute;
     top: 3rem;
     right: 3rem;
