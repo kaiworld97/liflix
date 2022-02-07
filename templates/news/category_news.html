@@ -26,31 +26,47 @@ Main
         autoplaySpeed: 3000,
     });
 </script>
-<!--<script>-->
-<!--    $('.news_wrapper').slick({-->
-<!--        slidesToShow: 4,-->
-<!--        slidesToScroll: 1,-->
-<!--        infinite: true,-->
-<!--        autoplay: true,-->
-<!--        autoplaySpeed: 4000,-->
-<!--    });-->
-<!--</script>-->
 {% endblock %}
 
-
+<p class="category">{{ code }}</p>
 <div id="main_wrap">
     {% for news in head_news %}
-    <div id="main_news{{ news.id }}" class="main_news">
+    <div id="main_news{{ news.id }}" class="main_news" onclick="main_open_modal({{ news.id }})">
         <img src="{{ news.img }}">
-        <!-- <img src={{news_img}}> -->
         <div class="main_title">
             <p>{{ news.title }}</p>
         </div>
-        <!-- <p>{{news_headline}}</p></div> -->
     </div>
     {% endfor %}
 </div>
- <p class="category">{{ code }}</p>
+    {% for i in head_news %}
+        <dialog id="main_news_detail{{ i.id }}" class="modal modal_box main_modal">
+            <button onclick="main_close_modal({{ i.id }})">&times;</button>
+            <div class="details">
+                <img src="{{ i.img }}" alt="">
+                <div class="modal_content">
+                <p class="details_title">{{ i.title }}</p>
+                    <p>{{ i.content }}</p></div>
+            </div>
+            <div class="movie_recommend">
+                <p class="recommend-title">현실이 더 영화 같다면?</p>
+                <br>
+                <p>이 기사를 본 당신에게...</p>
+                <p onclick="location.href = '/movie/{{ i.id }}'">
+                    기사 내용과 비슷한 영화 더 보기</p>
+            </div>
+            <div class="reco_movies">
+                {% for j in i.similar_movie %}
+                    <div class="poster_wrapper">
+                        <a href="movie/detail/{{ j.code }}">
+                            <img class="movie_poster" src="{{ j.poster }}"><br>
+                        </a>
+                        {{ j.title }}<br>
+                    </div>
+                {% endfor %}
+            </div>
+        </dialog>
+    {% endfor %}
 <div id="news_area">
     {% for politics in politics_news %}
     <div class="news_wrapper">
@@ -61,14 +77,15 @@ Main
             </div>
         </div>
     </div>
-    <dialog id="news_detail{{ politics.id }}" class="modal modal_box">
+    <dialog id="news_detail{{ politics.id }}" class="modal modal_box cate_modal">
 
         <button onclick="close_modal({{ politics.id }})">&times;</button>
 
         <div class="details">
             <img src="{{ politics.img }}" alt="">
+            <div class="modal_content">
             <p>{{ politics.title }}</p>
-            <p>{{ politics.content }}</p>
+                <p>{{ politics.content }}</p></div>
         </div>
         <div class="movie_recommend">
             <p>현실이 더 영화 같다면?</p>
@@ -76,12 +93,16 @@ Main
             <p onclick="location.href = '/movie/{{ politics.id }}'">
                 비슷한 줄거리 영화 더 보기</p>
         </div>
-        <div class="reco_movies">
-            <img src="{% static '/img/contasion.jpg' %}">
-            <img src="{% static '/img/gamgi.jpg' %}">
-            <img src="{% static '/img/busan.jpg' %}">
-            <img src="{% static '/img/exit.jpg' %}">
-        </div>
+         <div class="reco_movies">
+            {% for j in politics.similar_movie %}
+                <div class="poster_wrapper">
+                    <a href="movie/detail/{{ j.code }}">
+                        <img class="movie_poster" src="{{ j.poster }}"><br>
+                    </a>
+                    {{ j.title }}<br>
+                </div>
+            {% endfor %}
+         </div>
 
 
     </dialog>
