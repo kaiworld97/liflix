@@ -1,0 +1,22 @@
+.movie_poster {
+    width: 20vw;
+    height: 30vw;
+}
+.poster_container{
+    display: flex;
+    margin-top: 7%;
+    color: white;
+}
+
+.slick-next {
+    right: 88px;
+}
+.slick-prev {
+    left: 69px;
+}
+.slick-slider .slick-list {
+    padding-left: 9%;
+}
+.poster_wrapper{
+    /*text-align: center;*/
+}

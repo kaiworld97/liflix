@@ -2,6 +2,7 @@ import os
 import django
 import csv
 import sys
+import random
 
 # 프로젝트 이름.settings
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "liflix.settings")
@@ -27,5 +28,12 @@ with open(CSV_PATH_PRODUCTS, encoding='UTF8') as in_file:
 # json화 된 파일 불러오기
 # def view_news_data():
 #     hi = NewsModel.objects.get(id=1)
-#     print(hi.get_similar_news())
+#     for i in hi.get_similar_movie():
+#         print(type(i))
 # view_news_data()
+
+# def load_cate():
+#     news = random.sample(list(NewsModel.objects.all()),3)
+#     print(news)
+# #
+# load_cate()

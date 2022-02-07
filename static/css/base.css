@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
+html{
+    background-color: black;
+}
+
 
 *{
     margin: 0;
@@ -10,6 +14,9 @@ body{
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+.margin_auto{
+    margin: auto;
+}
 /*헤더*/
 
 .headerwrap {

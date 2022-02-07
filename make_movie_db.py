@@ -30,6 +30,7 @@ with open(CSV_PATH_PRODUCTS, encoding='UTF8') as in_file:
 # json화 된 파일 불러오기
 # def view_movie_data():
 #     hi = MovieModel.objects.get(code=171539)
-#     print(hi.get_actor())
-#     print(hi.get_genre())
+#     for i in hi.get_similar():
+#         print(type(i))
+#     # print(hi.get_genre())
 # view_movie_data()

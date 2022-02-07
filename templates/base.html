@@ -17,7 +17,7 @@
             <img src="/static/img/liflixlogo.png" alt="logo">
         </div>
         <div class="nav">
-            <div class="nav_items">홈</div>
+            <div class="nav_items" onclick="location.href = '/'">홈</div>
             <div class="nav_items">카테고리</div>
             <div class="nav_items">내가본뉴스</div>
             <div class="nav_items">자유게시판</div>
@@ -46,7 +46,7 @@
 {% block content %}
 
 {% endblock %}
-
+{#<script type="text/javascript"> $.noConflict(); </script>#}
 <script  type="text/javascript" src="{% static '/js/base.js' %}"></script>
 {% block js %}
 {% endblock %}

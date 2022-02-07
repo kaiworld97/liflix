@@ -16,15 +16,7 @@ class NewsModel(models.Model):
     title = models.CharField(max_length=256)
     content = models.TextField()
     img = models.URLField()
-
     code = models.CharField(max_length=256)
-
-    def set_code(self, x):
-        self.code = json.dumps(x)
-
-    def get_code(self):
-        return ast.literal_eval(json.loads(self.code))
-
     similar_news = models.TextField()
 
     def set_similar_news(self, x):
