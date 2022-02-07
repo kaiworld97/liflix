@@ -87,10 +87,17 @@ div.main_title {
 }
 
 .modal_box{
-    width: 30vw;
+    /*width: 30vw;*/
+    /*height: 100vh;*/
+    /*background-color: rgb(239 239 239 / 60%);*/
+    /*width: 60vw;*/
+    color: black;
+    font-weight: bold;
     height: 100vh;
-    background-color: rgb(239 239 239 / 60%);
+    background-color: rgb(239 239 239 / 90%);
     width: 60vw;
+    left: calc((100vw - 60vw)/2);
+    border: none;
 }
 
 .details{
@@ -99,9 +106,20 @@ div.main_title {
 }
 .details span{margin: 10px 10px 10px 10px;}
 .details p{margin: 10px 10px 10px 10px;}
+.details img{
+    height: 600px;
+}
+.details_title{
+    font-size: 25px;
+    font-weight: bold;
+}
 
 .movie_recommend {
     margin: 30px 10px 10px 10px;
+}
+
+.recommend-title{
+    font-size: 20px;
 }
 
 .reco_movies img {
@@ -109,15 +127,16 @@ div.main_title {
     margin: 2% 1% 2% 1%;
 }
 
-button {
+dialog button {
     position: absolute;
-    top: 3rem;
-    right: 3rem;
+    top: 1rem;
+    right: 2rem;
     background: transparent;
     border: none;
     color: #ffffff;
     font-size: 3rem;
     cursor: pointer;
+    outline: none;
 }
 
 
