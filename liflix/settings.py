@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'news',
     'tweet',
     'user',
-    'storages',
+    # 'storages',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

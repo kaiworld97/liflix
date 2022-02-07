@@ -59,7 +59,7 @@ Main
             <div class="news_wrapper">
                 {% for c in b %}
                     <div class="news_line" onclick="open_modal({{ c.id }})">
-                        <div class="news_coma">
+                        <div class="news_coma" id="news_coma">
                             <img class="category_img" src="{{ c.img }}" alt="img">
                             <p>{{ c.title }}</p>
                         </div>
@@ -73,14 +73,15 @@ Main
 
                             <div class="details">
                                 <img src="{{ c.img }}" alt="">
-                                <p>{{ c.title }}</p>
+                                <p class="details_title">{{ c.title }}</p>
                                 <p>{{c.content}}</p>
                             </div>
                             <div class="movie_recommend">
-                                <p>현실이 더 영화 같다면?</p>
+                                <p class="recommend-title">현실이 더 영화 같다면?</p>
+                                <br>
                                 <p>이 기사를 본 당신에게...</p>
                                 <p onclick="location.href = '/movie/{{ c.id }}'">
-                                    비슷한 줄거리 영화 더 보기</p>
+                                    기사 내용과 비슷한 영화 더 보기</p>
                             </div>
                             <div class="reco_movies">
                                 <img src="{% static '/img/contasion.jpg' %}">
