@@ -32,3 +32,5 @@ class NewsModel(models.Model):
 
     def get_similar_movie(self):
         return ast.literal_eval(json.loads(self.similar_movie))
+
+    hit = models.IntegerField(default=0)
