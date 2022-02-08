@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     'tweet',
     'user',
     'storages',
-    'taggit'
+    'taggit',
+    'taggit_templatetags2',
 
 ]
 MIDDLEWARE = [

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import TweetModel, TweetComment
-from .forms import *
+from user.models import UserModel
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, TemplateView
 
@@ -61,10 +61,11 @@ def write_comment(request, id):  # tweet의 id
     if request.method == 'POST':
         comment = request.POST.get('comment', '')
         current_tweet = TweetModel.objects.get(id=id)  # 보기 누른 tweet 전체 가져오기
+        user = UserModel.objects.get(username=request.user)
 
         TC = TweetComment()
         TC.comment = comment
-        TC.author = request.user
+        TC.author = user
         TC.tweet = current_tweet
         TC.save()
 
@@ -76,11 +77,10 @@ def update_tweet(request, id):
     if request.method == "POST":
         my_tweet.content = request.POST['content']
         my_tweet.save()
-        return redirect('/tweet')
+        return redirect('/tweet/'+str(id))
 
     else:
-        tweetform = TweetForm
-    return render(request, 'tweet/tweet_update.html', {'tweetForm': tweetform})
+        return render(request, 'tweet/tweet_update.html', {'my_tweet': my_tweet})
 
 
 @login_required

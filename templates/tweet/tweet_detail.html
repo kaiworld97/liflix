@@ -31,7 +31,7 @@
 
         .media-body {
             margin-top: 15px;
-            height: 70px
+            height: 70px;
         }
 
 
@@ -44,25 +44,39 @@
             width: 92%;
             height: 100px;
             margin: auto;
-            background-color: white;
-            border-radius: 1px;
+            border-radius: 2px;
+            background-color: #616264;
+            color: white;
+        }
+
+        .card {
+            background-color: #616264;
         }
 
         .comment-box {
-            margin-top: 15px;
             margin-left: 10px;
         }
 
-        .comment-body{
-
-        }
-
         .mt-0 {
-            color: black;
+            color: white;
         }
 
-        .delete-comment{
-            margin-right: 10px;
+        .delete-comment {
+            margin-right: 20px;
+        }
+
+        .tags-box {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .submit-button {
+            display: flex;
+            justify-content: right;
+        }
+
+        .col-md-12{
+            margin-top: 15px;
         }
     </style>
 {% endblock %}
@@ -74,41 +88,41 @@
                     <div>
                         <div>
                             <div class="media-body">
-                                <h5 class="mt-0">{{ tw.content }}</h5>
-                                {% if tw.tags.all %}
-                                    {% for tag in tw.tags.all %}
+                                <h5 class="mt-0">{{ tweet.content }}</h5>
+                            </div>
+                        </div>
+                        <div class="tags-box">
+                            <div>
+                                {% if tweet.tags.all %}
+                                    {% for tag in tweet.tags.all %}
                                         <a style="text-decoration: none"
                                            href="{% url 'tagged_object_list' tag.name %}">
-                                                    <span class="badge rounded-pill bg-success">
-                                                        {{ tag.name }}
-                                                    </span>
+                                                        <span class="badge rounded-pill bg-success">
+                                                            {{ tag.name }}
+                                                        </span>
                                         </a>
                                     {% endfor %}
                                     -<a style="text-decoration: none"
                                         href="{% url 'tag_cloud' %}">TagCloud</a>
                                 {% endif %}
                             </div>
-                        </div>
-                        <div style="align-items: flex-end">
-                            {# 글 작성자가 user라면 이걸 보여줄것이다.#}
-                            {% if tw.author == user %}
-                                <a href="/tweet/update/{{ tw.id }}">
-                                    <span class="badge rounded-pill bg-primary">수정</span>
-                                </a>
+                            <div style="align-items: flex-end">
+                                {# 글 작성자가 user라면 이걸 보여줄것이다.#}
+                                {% if tweet.author == user %}
+                                    <a href="/tweet/update/{{ tweet.id }}">
+                                        <span class="badge rounded-pill bg-primary">수정</span>
+                                    </a>
 
-                                <a href="/tweet/delete/{{ tw.id }}">
-                                    <span class="badge rounded-pill bg-danger">삭제</span>
-                                </a>
-                            {% endif %}
-                            {# 글 작성자가 user가 아니라면, 보기 버튼만 보여질것 #}
-                            <a href="/tweet/{{ tw.id }}">
-                                <span class="badge rounded-pill bg-success">보기</span>
-                            </a>
+                                    <a href="/tweet/delete/{{ tweet.id }}">
+                                        <span class="badge rounded-pill bg-danger">삭제</span>
+                                    </a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     <div class="media">
                         <div style="text-align: right">
-                            <span style="font-size: small">{{ tw.user_nick }}-{{ tw.created_at|timesince }} 전</span>
+                            <span style="font-size: small">{{ tweet.author.user_nick }}-{{ tweet.created_at|timesince }} 전</span>
                         </div>
                     </div>
                 </div>
@@ -120,7 +134,9 @@
         {% csrf_token %}
         <input type="text" class="form-control" id='comment' name='comment' placeholder="댓글을 작성 해 주세요"/>
         <p></p>
-        <button class="btn btn-outline-secondary" type="submit">작성</button>
+        <div class="submit-button">
+            <button class="btn btn-secondary" type="submit">작성</button>
+        </div>
     </form>
     <hr>
     <!-- 반복문이 들어 갈 곳 -->
@@ -131,7 +147,7 @@
                 <div class="comment-box">
                     <div class="comment-body">
                         <h5 class="mt-0"> {{ cm.comment }} </h5>
-                        <span> {{ cm.author }} </span>
+                        <span> {{ cm.author.user_nick }} </span>
                         <span> - {{ cm.created_at | timesince }} 전</span>
                     </div>
                     {% if cm.author == user %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block static %}
+    {# bootstrap을 사용하기 위한 과정#}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .container-top {
+            background-color: black;
+            margin-top: 6%;
+            color: white;
+
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .tag-cloud {
+            background-color: black;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}태그 클라우드{% endblock %}
+
+
+{% block content %}
+
+    <div class="container-top">
+        <div class="tag-cloud">
+            {% load taggit_templatetags2_tags %}
+            {% get_tagcloud as tags %} <!--모든 태그 추출해서 tags변수에 할당-->
+            {% for tag in tags %}
+                <a style="text-decoration: none" href="{% url 'tagged_object_list' tag.name %}">
+                        <span class="badge rounded-pill bg-primary">
+                            {{ tag.name }}({{ tag.num_times }})
+                        </span>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -87,12 +87,8 @@
                     {% endif %}
                     <div class="comment_content">
                         <div class="mb-3">
-                            <textarea class="form-control" name="content" rows="3" placeholder="한줄평"></textarea>
+                            <textarea class="form-control" name="content" rows="3" placeholder="한줄평">{{ my_tweet.content }}</textarea>
                         </div>
-
-                    </div>
-                    <div class="tag">
-                        <input type="text" class="form-control" name="tag" id="tag" placeholder="영화제목을 입력하세요.">
                     </div>
                     <div class='bt'>
                         <button type="submit" class="btn btn-secondary">작성하기</button>

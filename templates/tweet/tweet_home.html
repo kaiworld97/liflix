@@ -67,12 +67,27 @@
         }
 
         .media-body {
-            height: 100px
+            height: 60px;
         }
 
         .mt-0 {
-            color: black;
+            color: white;
         }
+
+        .buttons {
+            text-align: right;
+        }
+
+        .tags-box {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card {
+            background-color: #616264;
+            color: white;
+        }
+
     </style>
 {% endblock %}
 {% block title %}
@@ -119,9 +134,12 @@
                 <div class="card">
                     <div class="card-body">
                         <div>
-                            <div>
-                                <div class="media-body">
-                                    <h5 class="mt-0">{{ tw.content }}</h5>
+                            <div class="media-body">
+                                <h5 class="mt-0">{{ tw.content }}</h5>
+                            </div>
+
+                            <div class="tags-box">
+                                <div>
                                     {% if tw.tags.all %}
                                         {% for tag in tw.tags.all %}
                                             <a style="text-decoration: none"
@@ -135,27 +153,28 @@
                                             href="{% url 'tag_cloud' %}">TagCloud</a>
                                     {% endif %}
                                 </div>
-                            </div>
-                            <div style="align-items: flex-end">
-                                {# 글 작성자가 user라면 이걸 보여줄것이다.#}
-                                {% if tw.author == user %}
-                                    <a href="/tweet/update/{{ tw.id }}">
-                                        <span class="badge rounded-pill bg-primary">수정</span>
+                                <div class="buttons" style="align-items: flex-end">
+                                    {# 글 작성자가 user라면 이걸 보여줄것이다.#}
+                                    <a href="/tweet/{{ tw.id }}">
+                                        <span class="badge rounded-pill bg-success">보기</span>
                                     </a>
+                                    {% if tw.author == user %}
+                                        {#                                <a href="/tweet/update/{{ tw.id }}">#}
+                                        {#                                    <span class="badge rounded-pill bg-primary">수정</span>#}
+                                        {#                                </a>#}
 
-                                    <a href="/tweet/delete/{{ tw.id }}">
-                                        <span class="badge rounded-pill bg-danger">삭제</span>
-                                    </a>
-                                {% endif %}
-                                {# 글 작성자가 user가 아니라면, 보기 버튼만 보여질것 #}
-                                <a href="/tweet/{{ tw.id }}">
-                                    <span class="badge rounded-pill bg-success">보기</span>
-                                </a>
+                                        <a href="/tweet/delete/{{ tw.id }}">
+                                            <span class="badge rounded-pill bg-danger">삭제</span>
+                                        </a>
+                                    {% endif %}
+                                    {# 글 작성자가 user가 아니라면, 보기 버튼만 보여질것 #}
+                                </div>
                             </div>
+
                         </div>
                         <div class="media">
                             <div style="text-align: right">
-                                <span style="font-size: small">{{ tw.author.username }}-{{ tw.created_at|timesince }} 전</span>
+                                <span style="font-size: small">{{ tw.author.user_nick }}-{{ tw.created_at|timesince }} 전</span>
                             </div>
                         </div>
                     </div>
