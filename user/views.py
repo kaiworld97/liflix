@@ -21,7 +21,7 @@ def sign_up(request):
     if request.method == 'GET':
         user = request.user.is_authenticated
         if user:
-            return redirect('/')
+            return redirect('/liflix')
         else:
             return render(request, 'user/signup.html')
     elif request.method == 'POST':
@@ -88,7 +88,7 @@ def activate(request, uid64, token):
         user.is_active = True
         user.save()
         auth.login(request, user)
-        return redirect("/")
+        return redirect("/liflix")
     else:
         return render(request, 'main.html', {'error': '계정 활성화 오류'})
 
@@ -101,13 +101,13 @@ def sign_in(request):
         me = auth.authenticate(request, username=username, password=password)
         if me is not None:
             auth.login(request, me)
-            return redirect('/')
+            return redirect('/liflix')
         else:
             return render(request, 'user/signin.html', {'error': '이메일 혹은 패스워드를 확인 해 주세요.'})
     elif request.method == 'GET':
         user = request.user.is_authenticated
         if user:
-            return redirect('/')
+            return redirect('/liflix')
         else:
             return render(request, 'user/signin.html')
 
@@ -124,7 +124,7 @@ def update(request):
         user = request.user
         user.nick = request.POST['password']
         user.save()
-        return redirect('/')
+        return redirect('/liflix')
     return render(request, 'user/update.html')
 
 # from django.contrib import messages
