@@ -13,7 +13,7 @@
 <body>
 <div class="headerwrap">
     <div class="header">
-        <div class="logo">
+        <div class="logo" onclick="window.location.reload()">
             <img src="/static/img/liflixlogo.png" alt="logo">
         </div>
         <div class="nav">
@@ -22,27 +22,29 @@
                 <button class="dropbtn">카테고리
                 </button>
                 <div class="dropdown-content">
-                    <a href="#">IT/과학</a>
-                    <a href="#">세계</a>
-                    <a href="#">사회</a>
-                    <a href="#">경제</a>
-                    <a href="#">생활/문화</a>
-                    <a href="#">정치</a>
+                    <a href="/news/105">IT/과학</a>
+                    <a href="/news/104">세계</a>
+                    <a href="/news/102">사회</a>
+                    <a href="/news/101">경제</a>
+                    <a href="/news/103">생활/문화</a>
+                    <a href="/news/100">정치</a>
                 </div>
             </div>
             <div class="nav_items" onclick="location.href = '/'">자유게시판</div>
         </div>
         <div class="menu">
-            <div class="search">
-                <input type="text" id="searchbar">
-            </div>
-            <div class="menu_items">검색</div>
+{#            <div class="search">#}
+{#                <input type="text" id="searchbar">#}
+{#            </div>#}
+{#            <div class="menu_items">검색</div>#}
             <div>
+                {% if user.is_authenticated %}
                 <div class="menu_items" onclick="menudrop();">•••</div>
                 <div id="dropmenu" class="drop">
                     <span OnClick="location.href='/update'">MyPage</span>
                     <hr>
                     <span OnClick="location.href='/logout'">Logout</span>
+                    {% endif %}
 
                 </div>
             </div>

@@ -42,7 +42,9 @@ div.main_title {
 .category{
     color: white;
     margin: 20px 10px 20px 10px;
-    font-size: 30px;
+    font-size: 35px;
+    padding-left: 10%;
+    font-weight: bold;
 }
 .news_line{
     color: white;
@@ -87,7 +89,8 @@ div.main_title {
     width: 60vw;
     left: calc((100vw - 60vw)/2);
     border: none;
-
+    margin-top: 1%;
+    border-radius: 20px;
 }
 
 .details{
@@ -97,7 +100,7 @@ div.main_title {
 .details span{margin: 10px 10px 10px 10px;}
 .details p{margin: 10px 10px 10px 10px;}
 .details img{
-    height: 600px;
+    height: 30vw;
 }
 .details_title{
     font-size: 25px;
@@ -122,13 +125,29 @@ dialog button {
     position: absolute;
     top: 1rem;
     right: 2rem;
-    background: transparent;
     border: none;
     color: #ffffff;
     font-size: 3rem;
     cursor: pointer;
+    background-color: #00000075;
+    width: 5%;
+    border-radius: 30px;
 }
-
-
+.reco_movies{
+    display: flex;
+    margin-bottom: 1%;
+}
+.movie_poster{
+    width: 15vw;
+    height: 30vw;
+}
+.poster_wrapper{
+    text-align: center;
+    margin: auto;
+}
+.modal_content{
+    width: 55vw;
+    margin: 2% auto;
+}
 
 /* 뉴스디테일팝업 */
