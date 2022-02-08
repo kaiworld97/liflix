@@ -143,3 +143,7 @@ dialog::-webkit-scrollbar-thumb {
 background-color: #00000045;
 border-radius: 10px;
 }
+.header_hi{
+    margin-right: 10%;
+    width: 12vw;
+}

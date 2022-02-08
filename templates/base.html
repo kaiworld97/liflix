@@ -37,6 +37,9 @@
 {#                <input type="text" id="searchbar">#}
 {#            </div>#}
 {#            <div class="menu_items">검색</div>#}
+            <div class="header_hi">
+                {{ user.user_nick }}님 안녕하세요
+            </div>
             <div>
                 {% if user.is_authenticated %}
                 <div class="menu_items" onclick="menudrop();">•••</div>

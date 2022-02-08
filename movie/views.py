@@ -72,3 +72,12 @@ def movie_detail(request, id):
             return render(request, 'movie/detail.html', {'movie': movie})
         else:
             return redirect('/sign_in')
+
+
+def liflix(request):
+    if request.method == 'GET':
+        user = request.user.is_authenticated
+        if user:
+            return render(request, 'movie/liflix.html')
+        else:
+            return redirect('/sign_in')

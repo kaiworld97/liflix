@@ -1,7 +1,12 @@
+.header {
+    background-color: black;
+}
+
+
 
 #main_wrap{
     opacity: 70%;
-    margin: 5% 10% 0;
+    margin: 2% 10% 0;
     padding: 0 10%;
 }
 
@@ -36,8 +41,9 @@ div.main_title {
 /* 뉴스리스트부분 */
 .category{
     color: white;
-    margin: 20px 10px 20px 12%;
     font-size: 30px;
+    padding-left: 10%;
+    margin: 5% 4% 0;
 }
 .news_line{
     color: white;
@@ -57,7 +63,7 @@ div.main_title {
 }
 .news_wrapper{
     display: flex;
-    padding: 2%;
+    padding: 0 3% 3%;
 }
 
 /* 뉴스리스트부분 */
@@ -75,22 +81,9 @@ div.main_title {
     width: 15vw;
 }
 /* 뉴스디테일팝업 */
-.news_detail{
-    /*display: none;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*width: 100%;*/
-    /*height: 100vh;*/
-    /*background-color: rgb(0 0 0 / 70%);*/
-    /*position: fixed;*/
-    /*z-index: 500;*/
-}
+
 
 .modal_box{
-    /*width: 30vw;*/
-    /*height: 100vh;*/
-    /*background-color: rgb(239 239 239 / 60%);*/
-    /*width: 60vw;*/
     color: black;
     font-weight: bold;
     height: 100vh;
@@ -98,6 +91,8 @@ div.main_title {
     width: 60vw;
     left: calc((100vw - 60vw)/2);
     border: none;
+    margin-top: 1%;
+    border-radius: 20px;
 }
 
 .details{
@@ -107,7 +102,7 @@ div.main_title {
 .details span{margin: 10px 10px 10px 10px;}
 .details p{margin: 10px 10px 10px 10px;}
 .details img{
-    height: 600px;
+    height: 30vw;
 }
 .details_title{
     font-size: 25px;
@@ -122,6 +117,7 @@ div.main_title {
     font-size: 20px;
 }
 
+
 .reco_movies img {
     width: 18vw;
     margin: 2% 1% 2% 1%;
@@ -131,14 +127,29 @@ dialog button {
     position: absolute;
     top: 1rem;
     right: 2rem;
-    background: transparent;
     border: none;
     color: #ffffff;
     font-size: 3rem;
     cursor: pointer;
-    outline: none;
+    background-color: #00000075;
+    width: 5%;
+    border-radius: 30px;
 }
-
-
+.reco_movies{
+    display: flex;
+    margin-bottom: 1%;
+}
+.movie_poster{
+    width: 15vw;
+    height: 30vw;
+}
+.poster_wrapper{
+    text-align: center;
+    margin: auto;
+}
+.modal_content{
+    width: 55vw;
+    margin: 2% auto;
+}
 
 /* 뉴스디테일팝업 */
