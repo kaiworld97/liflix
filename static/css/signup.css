@@ -164,10 +164,10 @@ body::before{
 #profileimg{
     width: 100px;
     height: 100px;
-    /*background-color: coral;*/
+    background-color: coral;
     margin-bottom: 10px;
     border-radius: 10%;
-    background-image: url("/liflix/static/img/profile_default.jpg");
+    background-image: url("/static/img/profile_default.jpg");
     background-size: 100%;
 }
 form#frofileform {
