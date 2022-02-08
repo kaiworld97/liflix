@@ -1,0 +1,97 @@
+{%  extends 'base.html' %}
+
+{% load static %}
+
+{% block static %}
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="{% static '/css/main.css' %}">
+{% endblock %}
+
+{% block title %}
+Main
+{% endblock %}
+
+{% block content %}
+
+{% block js %}
+<script  type="text/javascript" src="{% static '/js/main.js' %}"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script>
+            $('#main_wrap').slick({
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: true,
+              autoplay: true,
+              autoplaySpeed: 3000,
+            });
+        </script>
+            <script>
+            $('.news_wrapper').slick({
+              slidesToShow: 4,
+              slidesToScroll: 1,
+              infinite: true,
+              autoplay: true,
+              autoplaySpeed: 4000,
+            });
+        </script>
+{% endblock %}
+
+
+
+
+    <div id="main_wrap">
+            {% for i in head_news %}
+                <div id="main_news{{ i.id }}" class="main_news">
+                    <img src="{{ i.img }}">
+                    <!-- <img src={{news_img}}> -->
+                    <div class="main_title">
+                        <p>{{ i.title }}</p>
+                    </div>
+                        <!-- <p>{{news_headline}}</p></div> -->
+                    </div>
+           {% endfor %}
+    </div>
+
+    <div id="news_area">
+        {% for a,b in news_list.items  %}
+            <p class="category">{{ a }}</p>
+            <div class="news_wrapper">
+                {% for c in b %}
+                    <div class="news_line" onclick="open_modal({{ c.id }})">
+                        <div class="news_coma">
+                            <img class="category_img" src="{{ c.img }}" alt="img">
+                            <p>{{ c.title }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% for c in b %}
+                <dialog id="news_detail{{ c.id }}" class="modal modal_box">
+
+                        <button onclick="close_modal({{ c.id }})">&times;</button>
+
+                            <div class="details">
+                                <img src="{{ c.img }}" alt="">
+                                <p>{{ c.title }}</p>
+                                <p>{{c.content}}</p>
+                            </div>
+                            <div class="movie_recommend">
+                                <p>현실이 더 영화 같다면?</p>
+                                <p>이 기사를 본 당신에게...</p>
+                                <p onclick="location.href = '/movie/{{ c.id }}'">
+                                    비슷한 줄거리 영화 더 보기</p>
+                            </div>
+                            <div class="reco_movies">
+                                <img src="{% static '/img/contasion.jpg' %}">
+                                <img src="{% static '/img/gamgi.jpg' %}">
+                                <img src="{% static '/img/busan.jpg' %}">
+                                <img src="{% static '/img/exit.jpg' %}">
+                            </div>
+
+
+                </dialog>
+            {% endfor %}
+    {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,97 @@
+<!-- templates/tweet/tweet_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}
+    게시글 자세히보기
+{% endblock %}
+
+{% block content %}
+    <div class="container timeline-container">
+        <div class="row">
+            <!-- 왼쪽 컬럼 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ user.username }}</h5>
+                        <p class="card-text"> {{ user.bio }}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 오른 쪽 컬럼-->
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-12 mb-2">
+                        <div class="card">
+                            <div class="card-body">
+                                {% if tweet.author == user %}
+                                    <div style="text-align: right">
+                                        <div style="text-align: right">
+                                            <a href="/board/update/{{ tweet.id }}">
+                                                <span class="badge rounded-pill bg-primary">수정</span>
+                                            </a>
+                                        </div>
+                                        <a href="/board/delete/{{ tweet.id }}">
+                                            <span class="badge rounded-pill bg-danger">삭제</span>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <div class="media">
+                                    <div class="media-bod">
+                                        <h5 class="mt-0">{{ tweet.content }}</h5>
+                                        {% if tw.tags.all %}
+                                            {% for tag in tw.tags.all %}
+                                                <a style="text-decoration: none"
+                                                   href="{% url 'tagged_object_list' tag.name %}">
+                                                    <span class="badge rounded-pill bg-success">
+                                                        {{ tag.name }}
+                                                    </span>
+                                                </a>
+                                            {% endfor %}
+                                            -<a style="text-decoration: none"
+                                                href="{% url 'tag_cloud' %}">TagCloud</a>
+                                        {% endif %}
+                                    </div>
+                                    <div style="text-align: right">
+                                        <span style="font-size: small">{{ tweet.author.username }}-{{ tweet.created_at|timesince }} 전</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 댓글 작성 하는 곳 -->
+                <form class="input-group mb-3" action="/board/comment/{{ tweet.id }}" method="post">
+                    {% csrf_token %}
+                    <input type="text" class="form-control" id='comment' name='comment' placeholder="댓글을 작성 해 주세요"/>
+                    <button class="btn btn-outline-secondary" type="submit">작성</button>
+                </form>
+                <hr>
+                <!-- 반복문이 들어 갈 곳 -->
+                <!-- 댓글 -->
+                {% for cm in comment %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h5 class="mt-0"> {{ cm.comment }} </h5>
+                                    <span> {{ cm.author }} </span>
+                                    <span> - {{ cm.created_at | timesince }} 전</span>
+                                </div>
+                                {% if cm.author == user %}
+                                    <div style="float: right">
+                                        <a href="/board/comment/delete/{{ cm.id }}">
+                                            <span class="badge bg-danger">삭제</span>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                {% endfor %}
+                <!-- 반복문이 끝난 곳 -->
+            </div>
+        </div>
+    </div>
+{% endblock %}

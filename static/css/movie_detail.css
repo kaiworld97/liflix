@@ -1,8 +1,91 @@
-.detail_poster{
-    width: 400px;
-    height: 600px;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+html{
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+
+
+.detail_poster {
+    width: 20vw;
+    height: 30vw;
+}
+
 .similar_poster{
-    width: 200px;
-    height: 300px;
+    width: 10vw;
+    height: 15vw;
+}
+
+._videoPlayer {
+    width: 65vw;
+    height: 40vw;
+}
+.movie_trailer{
+    margin: auto;
+    text-align: center;
+    margin-top: 5%;
+}
+.movieinfo{
+    visibility: hidden;
+}
+
+.main_movie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 39vw;
+    margin: auto;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.story{
+    text-align: center;
+}
+
+.main_movie span {
+    font-size: 1.2rem;
+    margin-top: 3%;
+}
+
+span.title {
+    font-size: 30px;
+}
+
+.alike {
+    display: flex;
+    flex-direction: column;
+    /*margin: 0 1% 1% 1%;*/
+
+}
+
+
+.alikemovies {
+    display: flex;
+    width: 70vw;
+    margin: auto;
+    /*justify-content: center;*/
+    text-align: center;
+    margin-bottom: 5%;
+
+}
+
+span.aliketitle {
+    margin-top: 5%;
+}
+.slick-prev {
+    left: -40px;
 }
