@@ -10,51 +10,55 @@ SignUp
 {% endblock %}
 
 {% block content %}
-    <section class="login_wrap">
-        <p>Sign up</p>
-        <form method="post" enctype="multipart/form-data" class="login_form" >
-           {% csrf_token %}
+<section class="login_wrap">
+    <p style="text-align: center">Sign up</p>
+    <form method="post" enctype="multipart/form-data" class="login_form">
+        {% csrf_token %}
 
         <div id="profile">
             <div class="profilewrap">
-            <div id="profileimg">
-            </div>
-            <div id="btn" class="choicebtn" for="selectFile">
-                <label for="selectFile">
-                    프로필선택
-                </label>
-            </div>
-            <input type="file" id="selectFile" name="selectFile" accept="image/*" onchange="loadFile(this)">
+                <div id="profileimg">
+                </div>
+                <div id="btn" class="choicebtn" for="selectFile">
+                    <label for="selectFile">
+                        프로필선택
+                    </label>
+                </div>
+                <input type="file" id="selectFile" name="selectFile" accept="image/*" onchange="loadFile(this)">
             </div>
         </div>
         <!-- 회원정보 -->
-          <div class="input_email">
-            <input type="email"  id="id" name="id" autocomplete="off" required>
-            <label for="id" >
+        <div class="input_email">
+            <input type="email" id="id" name="id" autocomplete="off" required>
+            <label for="id">
                 E-mail
             </label>
-          </div>
-          <div class="input_wrap">
+        </div>
+        <div class="input_wrap">
             <input type="password" name="pw" id="pw" autocomplete="off" required>
-            <label for="pw" >Password</label>
-          </div>
-          <div class="input_wrap">
+            <label for="pw">Password</label>
+        </div>
+        <div class="input_wrap">
             <input type="password" name="pw2" id="pw2" autocomplete="off" required>
-            <label for="pw2" >Password</label>
-          </div>
-          <div class="input_wrap">
+            <label for="pw2">Password</label>
+        </div>
+        <div class="input_wrap">
             <input type="date" name="birth" id="birth" autocomplete="off" required>
-            <label for="birth" >YYYY-MM-DD</label>
-          </div>
-          <div class="input_wrap">
+            <label for="birth">YYYY-MM-DD</label>
+        </div>
+        <div class="input_wrap">
             <input type="text" name="nick" id="nick" autocomplete="off" required>
-            <label for="nick" >Your Name</label>
-          </div>
-          <div class="input_wrap">
+            <label for="nick">Your Name</label>
+        </div>
+        <div class="input_wrap">
             <input type="text" name="bio" id="bio" autocomplete="off" required>
-            <label for="bio" >Introduction...</label>
-          </div>
-
+            <label for="bio">Introduction...</label>
+        </div>
+        {% if error %}
+        <div class="alert alert-danger" role="alert" style="color: red">
+            {{ error }}
+        </div>
+        {% endif %}
         <div class="input_wrap">
             <button type="submit" class="btn btn-primary">Sign Up</button>
         </div>
