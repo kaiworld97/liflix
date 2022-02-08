@@ -38,11 +38,13 @@
 {#            </div>#}
 {#            <div class="menu_items">검색</div>#}
             <div>
+                {% if user.is_authenticated %}
                 <div class="menu_items" onclick="menudrop();">•••</div>
                 <div id="dropmenu" class="drop">
                     <span OnClick="location.href='/update'">MyPage</span>
                     <hr>
                     <span OnClick="location.href='/logout'">Logout</span>
+                    {% endif %}
 
                 </div>
             </div>
