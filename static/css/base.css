@@ -17,6 +17,9 @@ body{
 .margin_auto{
     margin: auto;
 }
+.display_flex{
+    display: flex;
+}
 /*헤더*/
 
 .headerwrap {

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import MovieModel
 from news.models import NewsModel
+from user.models import UserModel, UserMovieModel
 import pandas as pd
 import ast
 import requests
@@ -33,6 +34,11 @@ def movie_detail(request, id):
     if request.method == 'GET':
         user = request.user.is_authenticated
         if user:
+            user_id = UserModel.objects.get(username=request.user)
+            movie_id = MovieModel.objects.get(code=id)
+            movie_user = UserMovieModel.objects.filter(movie_id=movie_id, user_id=user_id)
+            if not movie_user:
+                UserMovieModel.objects.create(movie_id=movie_id, user_id=user_id)
             headers = {
                 'authority': 'movie.naver.com',
                 'sec-ch-ua': '" Not;A Brand";v="99", "Google Chrome";v="97", "Chromium";v="97"',

@@ -58,7 +58,7 @@ Main
             <div class="reco_movies">
                 {% for j in i.similar_movie %}
                     <div class="poster_wrapper">
-                        <a href="movie/detail/{{ j.code }}">
+                        <a href="/movie/detail/{{ j.code }}">
                             <img class="movie_poster" src="{{ j.poster }}"><br>
                         </a>
                         {{ j.title }}<br>
@@ -94,8 +94,8 @@ Main
         </div>
          <div class="reco_movies">
             {% for j in politics.similar_movie %}
-                <div class="poster_wrapper">
-                    <a href="movie/detail/{{ j.code }}">
+                <div class="poster_wrapper" >
+                    <a href="/movie/detail/{{ j.code }}">
                         <img class="movie_poster" src="{{ j.poster }}"><br>
                     </a>
                     {{ j.title }}<br>

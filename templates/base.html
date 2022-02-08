@@ -16,32 +16,35 @@
         <div class="logo" onclick="window.location.reload()">
             <img src="/static/img/liflixlogo.png" alt="logo">
         </div>
-        <div class="nav">
-            <div class="nav_items" onclick="location.href = '/'">홈</div>
-            <div class="dropdown">
-                <button class="dropbtn">카테고리
-                </button>
-                <div class="dropdown-content">
-                    <a href="/news/105">IT/과학</a>
-                    <a href="/news/104">세계</a>
-                    <a href="/news/102">사회</a>
-                    <a href="/news/101">경제</a>
-                    <a href="/news/103">생활/문화</a>
-                    <a href="/news/100">정치</a>
+        {% if user.is_authenticated %}
+            <div class="nav">
+                <div class="nav_items" onclick="location.href = '/'">홈</div>
+                <div class="dropdown">
+                    <button class="dropbtn">카테고리
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/news/105">IT/과학</a>
+                        <a href="/news/104">세계</a>
+                        <a href="/news/102">사회</a>
+                        <a href="/news/101">경제</a>
+                        <a href="/news/103">생활/문화</a>
+                        <a href="/news/100">정치</a>
+                    </div>
                 </div>
+                <div class="nav_items" onclick="location.href = '/'">자유게시판</div>
             </div>
-            <div class="nav_items" onclick="location.href = '/'">자유게시판</div>
-        </div>
+        {% endif %}
         <div class="menu">
 {#            <div class="search">#}
 {#                <input type="text" id="searchbar">#}
 {#            </div>#}
 {#            <div class="menu_items">검색</div>#}
-            <div class="header_hi">
-                {{ user.user_nick }}님 안녕하세요
-            </div>
-            <div>
+
+            <div class="display_flex">
                 {% if user.is_authenticated %}
+                <div class="header_hi">
+                    {{ user.user_nick }}님 안녕하세요
+                </div>
                 <div class="menu_items" onclick="menudrop();">•••</div>
                 <div id="dropmenu" class="drop">
                     <span OnClick="location.href='/update'">MyPage</span>

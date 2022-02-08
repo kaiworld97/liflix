@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import NewsModel
 from movie.models import MovieModel
+from user.models import UserModel,UserNewsModel
+from django.http import HttpResponse
 import requests
 import random
 import json
@@ -71,3 +73,10 @@ def category_news_view(request, category):
                           {'head_news': head_news, 'politics_news': politics_newss, 'code': code})
         else:
             return redirect('/sign_in')
+    elif request.method == 'POST':
+        user_id = UserModel.objects.get(username=request.user)
+        news_id = NewsModel.objects.get(id=category)
+        news_user = UserNewsModel.objects.filter(news_id=news_id, user_id=user_id)
+        if not news_user:
+            UserNewsModel.objects.create(news_id=news_id, user_id=user_id)
+        return HttpResponse('save')
