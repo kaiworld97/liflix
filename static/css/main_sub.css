@@ -6,7 +6,7 @@
 
 #main_wrap{
     opacity: 70%;
-    margin: 5% 10% 0;
+    margin: 2% 10% 0;
     padding: 0 10%;
 }
 
@@ -41,10 +41,9 @@ div.main_title {
 /* 뉴스리스트부분 */
 .category{
     color: white;
-    margin: 20px 10px 20px 10px;
-    font-size: 35px;
+    font-size: 30px;
     padding-left: 10%;
-    font-weight: bold;
+    margin: 5% 4% 0;
 }
 .news_line{
     color: white;
@@ -64,12 +63,15 @@ div.main_title {
 }
 .news_wrapper{
     display: flex;
-    padding: 0 10%;
+    padding: 0 3% 3%;
 }
 
 /* 뉴스리스트부분 */
 #news_area{
     margin: 3% 5% 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .category_img{
     width: 20vw;

@@ -1,120 +1,168 @@
 <!-- templates/tweet/home.html -->
 {% extends 'base.html' %}
+{% block static %}
+    {# bootstrap을 사용하기 위한 과정#}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: black;
+        }
 
-{#{% load static %}#}
-{##}
-{#{% block static %}#}
-{#    <link rel="stylesheet" href="{% static '/css/board_home.css' %}">#}
-{#{% endblock %}#}
+        .container-top {
+            margin-top: 6%;
+            margin-right: 4%;
+            margin-left: 4%;
+            color: white;
+            background-color: black;
+        }
 
+        .container-bottom {
+            margin-top: 1%;
+            margin-right: 8.5%;
+            margin-left: 8.5%;
+            color: white;
+            background-color: black;
+        }
+
+        .post-box {
+            background-color: dimgray;
+            padding: 10px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .writer {
+            background-color: #999999;
+            width: 70px;
+            text-align: center;
+
+        }
+
+        .content-box {
+            margin-top: 10px;
+        }
+
+        .comment_content {
+            width: 95%;
+
+            margin: 0 auto;
+        }
+
+        .tag {
+            width: 200px;
+            text-align: center;
+            margin-right: 35px;
+            float: right;
+        }
+
+        .bt {
+            margin-left: 35px;
+        }
+
+        .media-body {
+            height: 100px
+        }
+
+        .mt-0 {
+            color: black;
+        }
+    </style>
+{% endblock %}
+{% block title %}
+    코멘트
+{% endblock %}
 {% block content %}
-    <div class="container timeline-container">
-        <div class="row">
-            <!-- 왼쪽 컬럼 -->
-            <div class="col-md-3">
+    <div class='container-top'>
+        <div class='post-box'>
+            <div class='writer'>
+                <p>{{ user.user_nick }}</p>
+            </div>
+            <div class="content-box">
+                <form action="/tweet/" method="post">
+                    {% csrf_token %}
+                    {% if error %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endif %}
+                    <div class="comment_content">
+                        <div class="mb-3">
+                            <textarea class="form-control" name="content" rows="3" placeholder="한줄평"></textarea>
+                        </div>
+
+                    </div>
+                    <div class="tag">
+                        <input type="text" class="form-control" name="tag" id="tag" placeholder="영화제목을 입력하세요.">
+                    </div>
+                    <div class='bt'>
+                        <button type="submit" class="btn btn-secondary">작성하기</button>
+                    </div>
+
+                </form>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 작성 된 글이 나오는 곳 -->
+    <div class="container-bottom">
+        {% for tw in tweet %}
+            <div class="col-md-12 mb-2">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{ user.username }}</h5>
-                        <p class="card-text">{{ user.bio }}</p>
-                    </div>
-                </div>
-            </div>
-            <!-- 오른 쪽 컬럼-->
-            <div class="col-md-7">
-                <!-- 글을 작성 하는 곳 -->
-                <div class="row mb-2">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="media">
-                                    <div class="media-body">
-                                        <form action="/tweet/" method="post">
-                                            {% csrf_token %} {# form 은 항상 암호화 걸어서 보내주기 #}
-                                            {% if error %}
-                                                <div class="alert alert-danger" role="alert">
-                                                    {{ error }}
-                                                </div>
-                                            {% endif %}
-                                            <div class="form-group mb-2">
-                                                <div class="mt-3 row">
-                                                    <label for="tag"
-                                                           class="col-sm-2 col-form-label">영화 제목</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="tag" id="tag"
-                                                               placeholder="정확하게 기입해주세요">
-                                                    </div>
-                                                </div>
-                                                <p>
-                                                <h5 class="mt-0">감상평</h5>
-                                                <textarea class="form-control" style="resize: none" name='my-content'
-                                                          id="my-content"></textarea>
-                                                <p>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary" style="float:right;">작성하기
-                                            </button>
-                                            {# 글을 적는 공간(form) 안에 button type="submit" >>  그 안에 있는 내용을 서버로 보내주는 역할 #}
-                                        </form>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <!-- 작성 된 글이 나오는 곳 -->
-                <div class="row">
-                    {% for tw in tweet %}
-                        <div class="col-md-12 mb-2">
-                            <div class="card">
-                                <div class="card-body">
-                                    {# 글 작성자가 user라면 이걸 보여줄것이다.#}
-                                    {% if tw.author == user %}
-                                        <div style="text-align: right">
-                                            <a href="/board/update/{{ tw.id }}">
-                                                <span class="badge rounded-pill bg-primary">수정</span>
-                                            </a>
-                                        </div>
-                                        <div style="text-align: right">
-                                            <a href="/board/delete/{{ tw.id }}">
-                                                <span class="badge rounded-pill bg-danger">삭제</span>
-                                            </a>
-                                        </div>
-                                    {% endif %}
-                                    {# 글 작성자가 user가 아니라면, 보기 버튼만 보여질것 #}
-                                    <div style="text-align: right">
-                                        <a href="/board/{{ tw.id }}">
-                                            <span class="badge rounded-pill bg-success">보기</span>
-                                        </a>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h5 class="mt-0">{{ tw.content }}</h5>
-                                            {% if tw.tags.all %}
-                                                {% for tag in tw.tags.all %}
-                                                    <a style="text-decoration: none"
-                                                       href="{% url 'tagged_object_list' tag.name %}">
+                        <div>
+                            <div>
+                                <div class="media-body">
+                                    <h5 class="mt-0">{{ tw.content }}</h5>
+                                    {% if tw.tags.all %}
+                                        {% for tag in tw.tags.all %}
+                                            <a style="text-decoration: none"
+                                               href="{% url 'tagged_object_list' tag.name %}">
                                                     <span class="badge rounded-pill bg-success">
                                                         {{ tag.name }}
                                                     </span>
-                                                    </a>
-                                                {% endfor %}
-                                                -<a style="text-decoration: none"
-                                                    href="{% url 'tag_cloud' %}">TagCloud</a>
-                                            {% endif %}
-                                        </div>
-                                        <div style="text-align: right">
-                                            <span style="font-size: small">{{ tw.author.username }}-{{ tw.created_at|timesince }} 전</span>
-                                        </div>
-                                    </div>
+                                            </a>
+                                        {% endfor %}
+                                        -<a style="text-decoration: none"
+                                            href="{% url 'tag_cloud' %}">TagCloud</a>
+                                    {% endif %}
                                 </div>
                             </div>
-                        </div>
-                    {% endfor %}
-                </div>
+                            <div style="align-items: flex-end">
+                                {# 글 작성자가 user라면 이걸 보여줄것이다.#}
+                                {% if tw.author == user %}
+                                    <a href="/tweet/update/{{ tw.id }}">
+                                        <span class="badge rounded-pill bg-primary">수정</span>
+                                    </a>
 
+                                    <a href="/tweet/delete/{{ tw.id }}">
+                                        <span class="badge rounded-pill bg-danger">삭제</span>
+                                    </a>
+                                {% endif %}
+                                {# 글 작성자가 user가 아니라면, 보기 버튼만 보여질것 #}
+                                <a href="/tweet/{{ tw.id }}">
+                                    <span class="badge rounded-pill bg-success">보기</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div style="text-align: right">
+                                <span style="font-size: small">{{ tw.author.username }}-{{ tw.created_at|timesince }} 전</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-2"></div>
-        </div>
+        {% endfor %}
     </div>
+
+
 {% endblock %}

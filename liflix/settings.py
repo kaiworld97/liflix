@@ -22,6 +22,15 @@ import json
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# with open(os.path.join(BASE_DIR, 'liflix/config/aws.json')) as f:
+#     secrets = json.loads(f.read())
+#
+# AWS_S3_REGION_NAME = 'ap-northeast-2'
+# AWS_S3_SIGNATURE_VERSION = 's3v4'
+# AWS_ACCESS_KEY_ID = secrets['AWS']['ACCESS_KEY_ID']
+# AWS_SECRET_ACCESS_KEY = secrets['AWS']['SECRET_ACCESS_KEY']
+# AWS_STORAGE_BUCKET_NAME = secrets['AWS']['STORAGE_BUCKET_NAME']
+# AWS_DEFAULT_ACL = 'public-read' # 올린 파일을 누구나 읽을 수 있게 지정합니다!
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -33,7 +42,6 @@ SECRET_KEY = 'django-insecure-_)iwe-1)7(p^h1w%dolg82ye!q7tk(7siz-7zm$)r6!7=)-&x_
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -50,6 +58,7 @@ INSTALLED_APPS = [
     'user',
     'storages',
     'taggit'
+
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -82,7 +91,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'liflix.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
@@ -92,7 +100,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -112,7 +119,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -124,11 +130,11 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 import os
+
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
@@ -137,14 +143,11 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 AUTH_USER_MODEL = 'user.UserModel'
 
-
-
-EMAIL_HOST = 'smtp.gmail.com'  # 메일 호스트 서버
-EMAIL_PORT = '587'  # 서버 포트
-EMAIL_HOST_USER = 'seojh8910@gmail.com'  # 우리가 사용할 Gmail
-EMAIL_HOST_PASSWORD = 'sparta10jo'  # 우리가 사용할 Gmail p
-EMAIL_USE_TLS = True  # TLS 보안 설정
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # 응답 메일 관련 설정
+# EMAIL_HOST = 'smtp.gmail.com'  # 메일 호스트 서버
+# EMAIL_PORT = '587'  # 서버 포트
+# EMAIL_HOST_USER = secrets['mail']['EMAIL_HOST_USER']  # 우리가 사용할 Gmail
+# EMAIL_HOST_PASSWORD = secrets['mail']['EMAIL_HOST_PASSWORD']  # 우리가 사용할 Gmail p
+# EMAIL_USE_TLS = True  # TLS 보안 설정
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # 응답 메일 관련 설정

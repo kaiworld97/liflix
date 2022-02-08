@@ -12,10 +12,10 @@ def home(request):
     if user:
         return redirect('/tweet')
     else:
-        return redirect('sign-in')
+        return redirect('sign_in')
 
 
-def board(request):
+def tweet(request):
     if request.method == 'GET':
         user = request.user.is_authenticated  # 인증된(로그인된) 사용자 있냐
 
@@ -28,7 +28,7 @@ def board(request):
 
     elif request.method == 'POST':
         user = request.user  # 지금 로그인 되어있는 사용자의 정보 전체
-        content = request.POST.get('my-content')
+        content = request.POST.get('content')
         tags = request.POST.get('tag', '').split(',')
         if content == '':
             all_tweet = TweetModel.objects.all().order_by('-created_at')
@@ -40,11 +40,7 @@ def board(request):
                 if tag != '':  # 태그를 작성하지 않았을 경우에 저장하지 않기 위해서
                     my_tweet.tags.add(tag)
             my_tweet.save()  # 아래 네줄을 2줄로 대체
-            # my_tweet = BoardModel()
-            # my_tweet.author = user
-            # my_tweet.content = request.POST.get('my-content', '')
-            # my_tweet.save()
-            return redirect('/board')
+            return redirect('/tweet')
 
 @login_required
 def delete_tweet(request, id):
@@ -80,11 +76,11 @@ def update_tweet(request, id):
     if request.method == "POST":
         my_tweet.content = request.POST['content']
         my_tweet.save()
-        return redirect('/board')
+        return redirect('/tweet')
 
     else:
         tweetform = TweetForm
-    return render(request, 'tweet/tweet_update.html', {'boardForm': tweetForm})
+    return render(request, 'tweet/tweet_update.html', {'tweetForm': tweetform})
 
 
 @login_required

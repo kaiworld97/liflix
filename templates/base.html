@@ -11,114 +11,59 @@
 </head>
 
 <body>
-    <div class="headerwrap">
+<div class="headerwrap">
     <div class="header">
-        <div class="logo">
+        <div class="logo" onclick="window.location.reload()">
             <img src="/static/img/liflixlogo.png" alt="logo">
         </div>
-        <div class="nav">
-            <div class="nav_items" onclick="location.href = '/'">홈</div>
-            <div class="nav_items">카테고리</div>
-            <div class="nav_items">내가본뉴스</div>
-            <div class="nav_items">자유게시판</div>
-        </div>
-        <div class="menu">
-            <div class="search">
-                <input type="text" id="searchbar">
+        {% if user.is_authenticated %}
+            <div class="nav">
+                <div class="nav_items" onclick="location.href = '/'">홈</div>
+                <div class="dropdown">
+                    <button class="dropbtn">카테고리
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/news/105">IT/과학</a>
+                        <a href="/news/104">세계</a>
+                        <a href="/news/102">사회</a>
+                        <a href="/news/101">경제</a>
+                        <a href="/news/103">생활/문화</a>
+                        <a href="/news/100">정치</a>
+                    </div>
+                </div>
+                <div class="nav_items" onclick="location.href = '/'">자유게시판</div>
             </div>
-            <div class="menu_items">검색</div>
-            <div>
+        {% endif %}
+        <div class="menu">
+{#            <div class="search">#}
+{#                <input type="text" id="searchbar">#}
+{#            </div>#}
+{#            <div class="menu_items">검색</div>#}
+
+            <div class="display_flex">
+                {% if user.is_authenticated %}
+                <div class="header_hi">
+                    {{ user.user_nick }}님 안녕하세요
+                </div>
                 <div class="menu_items" onclick="menudrop();">•••</div>
                 <div id="dropmenu" class="drop">
-                    <a herf="#">MyPage</a>
+                    <span OnClick="location.href='/update'">MyPage</span>
                     <hr>
-                    <a herf="#">Logout</a>
+                    <span OnClick="location.href='/logout'">Logout</span>
+                    {% endif %}
 
                 </div>
             </div>
         </div>
 
     </div>
-    </div>
-
-
+</div>
 
 {% block content %}
-
 {% endblock %}
-{#<script type="text/javascript"> $.noConflict(); </script>#}
-<script  type="text/javascript" src="{% static '/js/base.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/base.js' %}"></script>
 {% block js %}
 {% endblock %}
 </body>
 </html>
 
-
-
-
-
-
-
-
-
-
-{#<!DOCTYPE html>#}
-{#{% load static %}#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <link rel="stylesheet" href="{% static 'css/base.css' %}">#}
-{#    {% block static %}{% endblock %}#}
-{#    <meta charset="UTF-8">#}
-{#    <title>{% block title %}{% endblock %} | spartaSNS</title>#}
-{#    <!-- Bootstrap CSS -->#}
-{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"#}
-{#          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">#}
-{##}
-{#    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"#}
-{#            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"#}
-{#            crossorigin="anonymous"></script>#}
-{#</head>#}
-{#<body>#}
-{#<nav class="navbar navbar-expand-lg navbar-light bg-light">#}
-{#    <div class="container">#}
-{#        <a class="navbar-brand" href="/">SpartaSNS</a>#}
-{#        {% if user.is_authenticated %}#}
-{#            <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
-{#                <ul class="navbar-nav mr-auto">#}
-{#                    <li class="nav-item active">#}
-{#                        <a class="nav-link" href="/user"> 친구 <span class="sr-only"></span></a>#}
-{#                    </li>#}
-{#                </ul>#}
-{#            </div>#}
-{#        {% endif %}#}
-{#        <form class="form-inline my-2 my-lg-0">#}
-{#            {% if not user.is_authenticated %}#}
-{#                <ul class="navbar-nav mr-auto">#}
-{#                    <li class="nav-item active">#}
-{#                        <a class="nav-link" href="/sign-in"> Sign In <span class="sr-only"></span></a>#}
-{#                    </li>#}
-{#                    <li class="nav-item active">#}
-{#                        <a class="nav-link" href="/sign-up"> Sign Up <span class="sr-only"></span></a>#}
-{#                    </li>#}
-{#                </ul>#}
-{#            {% else %}#}
-{#                <ul class="navbar-nav mr-auto">#}
-{#                    <li class="nav-item disabled">#}
-{#                    <span class="nav-link">#}
-{#                        {{ user.username }} 님 반갑습니다!#}
-{#                    </span>#}
-{#                    </li>#}
-{#                    <li class="nav-item active">#}
-{#                        <a class="nav-link" href="/logout"> 로그아웃</a>#}
-{#                    </li>#}
-{#                </ul>#}
-{#            {% endif %}#}
-{#        </form>#}
-{#    </div>#}
-{#</nav>#}
-{#{% block content %}#}
-{##}
-{#{% endblock %}#}
-{#<script  type="text/javascript" src="{% static 'js/base.js' %}"></script>#}
-{#</body>#}
-{#</html>#}
