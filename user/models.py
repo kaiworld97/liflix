@@ -1,7 +1,6 @@
 # user/models.py
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.conf import settings
 from movie.models import MovieModel
 from news.models import NewsModel
 
