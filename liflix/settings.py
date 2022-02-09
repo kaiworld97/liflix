@@ -16,8 +16,8 @@ import os
 import json
 
 pymysql.install_as_MySQLdb()
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,13 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 with open(os.path.join(BASE_DIR, 'liflix/config/aws.json')) as f:
     secrets = json.loads(f.read())
-#
-# AWS_S3_REGION_NAME = 'ap-northeast-2'
-# AWS_S3_SIGNATURE_VERSION = 's3v4'
-# AWS_ACCESS_KEY_ID = secrets['AWS']['ACCESS_KEY_ID']
-# AWS_SECRET_ACCESS_KEY = secrets['AWS']['SECRET_ACCESS_KEY']
-# AWS_STORAGE_BUCKET_NAME = secrets['AWS']['STORAGE_BUCKET_NAME']
-# AWS_DEFAULT_ACL = 'public-read' # 올린 파일을 누구나 읽을 수 있게 지정합니다!
+
+AWS_S3_REGION_NAME = 'ap-northeast-2'
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+AWS_ACCESS_KEY_ID = secrets['AWS']['ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = secrets['AWS']['SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = secrets['AWS']['STORAGE_BUCKET_NAME']
+AWS_DEFAULT_ACL = 'public-read' # 올린 파일을 누구나 읽을 수 있게 지정합니다!
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'news',
     'tweet',
     'user',
-    # 'storages',
+    'storages',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
