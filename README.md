@@ -1,9 +1,5 @@
 # liflix
 liflix
-<<<<<<< HEAD
-+노광민
-+강현명
-=======
 
 
 movie_crawling and cosine similarity each movies<br>
