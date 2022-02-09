@@ -24,6 +24,7 @@ class UserNewsModel(models.Model):
 
     user_id = models.ForeignKey(UserModel, on_delete=models.CASCADE)
     news_id = models.ForeignKey(NewsModel, on_delete=models.CASCADE)
+    category = models.CharField(max_length=30, default='')
 
 
 class UserMovieModel(models.Model):
