@@ -208,11 +208,10 @@ recognition.addEventListener("end", (e) => {
                 ai_close_btn()
                 location.href = '/liflix'
                 break
-            // case '게시판가 줘':
-            //     setTimeout(() => speak('저는 블루 입니다'), 1000);
-            //     ai_close_btn()
-            //     location.href = '/'
-            //     break
+            case '게시판가 줘':
+                ai_close_btn()
+                location.href = '/tweet'
+                break
             default:
                 if ((ai_text.innerText).split(' ').includes('추천해')) {
                     document.getElementById('blue').value = ai_text.innerText
