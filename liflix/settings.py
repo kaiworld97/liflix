@@ -22,8 +22,8 @@ import json
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-with open(os.path.join(BASE_DIR, 'liflix/config/aws.json')) as f:
-    secrets = json.loads(f.read())
+# with open(os.path.join(BASE_DIR, 'liflix/config/aws.json')) as f:
+#     secrets = json.loads(f.read())
 #
 # AWS_S3_REGION_NAME = 'ap-northeast-2'
 # AWS_S3_SIGNATURE_VERSION = 's3v4'
@@ -142,9 +142,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'user.UserModel'
 
-EMAIL_HOST = 'smtp.gmail.com'  # 메일 호스트 서버
-EMAIL_PORT = '587'  # 서버 포트
-EMAIL_HOST_USER = secrets['mail']['EMAIL_HOST_USER']  # 우리가 사용할 Gmail
-EMAIL_HOST_PASSWORD = secrets['mail']['EMAIL_HOST_PASSWORD']  # 우리가 사용할 Gmail p
-EMAIL_USE_TLS = True  # TLS 보안 설정
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # 응답 메일 관련 설정
+# EMAIL_HOST = 'smtp.gmail.com'  # 메일 호스트 서버
+# EMAIL_PORT = '587'  # 서버 포트
+# EMAIL_HOST_USER = secrets['mail']['EMAIL_HOST_USER']  # 우리가 사용할 Gmail
+# EMAIL_HOST_PASSWORD = secrets['mail']['EMAIL_HOST_PASSWORD']  # 우리가 사용할 Gmail p
+# EMAIL_USE_TLS = True  # TLS 보안 설정
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # 응답 메일 관련 설정
