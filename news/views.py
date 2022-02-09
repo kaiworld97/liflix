@@ -26,8 +26,8 @@ def news_view(request):
                     try:
                         for j in random.sample(get_news.get_similar_movie(),3):
                             similar_movie.append(MovieModel.objects.get(code=j))
-                            get_news.similar_movie = similar_movie
-                            head_news.append(get_news)
+                        get_news.similar_movie = similar_movie
+                        head_news.append(get_news)
                     except:
                         continue
             else:
@@ -100,7 +100,8 @@ def category_news_view(request, category):
         news = NewsModel.objects.get(id=category)
         news_user = UserNewsModel.objects.filter(news_id=news, user_id=user)
         if not news_user:
-            UserNewsModel.objects.create(news_id=news, user_id=user)
+            UserNewsModel.objects.create(news_id=news, user_id=user, category=news.code)
             news.hit += 1
+
             news.save()
         return HttpResponse('save')

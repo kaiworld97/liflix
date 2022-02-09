@@ -1,0 +1,104 @@
+<!-- templates/tweet/home.html -->
+{% extends 'base.html' %}
+{% block static %}
+    {# bootstrap을 사용하기 위한 과정#}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .container-top {
+            margin-top: 6%;
+            margin-right: 4%;
+            margin-left: 4%;
+            color: white;
+            background-color: black;
+        }
+
+
+        .post-box {
+            background-color: dimgray;
+            padding: 10px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .writer {
+            background-color: #999999;
+            width: 70px;
+            text-align: center;
+
+        }
+
+        .content-box {
+            margin-top: 10px;
+        }
+
+        .comment_content {
+            width: 95%;
+
+            margin: 0 auto;
+        }
+
+         .tag {
+            width: 200px;
+            text-align: center;
+            margin-right: 35px;
+            float: right;
+        }
+
+        .bt {
+            margin-left: 35px;
+        }
+
+        .media-body {
+            height: 100px
+        }
+
+        .mt-0 {
+            color: black;
+        }
+    </style>
+{% endblock %}
+{% block title %}
+    수정하기
+{% endblock %}
+{% block content %}
+    <div class='container-top'>
+        <div class='post-box'>
+            <div class='writer'>
+                <p>{{ user.user_nick }}</p>
+            </div>
+            <div class="content-box">
+                <form method="post">
+                    {% csrf_token %}
+                    {% if error %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endif %}
+                    <div class="comment_content">
+                        <div class="mb-3">
+                            <textarea class="form-control" name="content" rows="3" placeholder="한줄평">{{ my_tweet.content }}</textarea>
+                        </div>
+                    </div>
+                    <div class='bt'>
+                        <button type="submit" class="btn btn-secondary">작성하기</button>
+                    </div>
+
+                </form>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

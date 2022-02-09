@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    blue
+{% endblock %}
+
+{% load static %}
+    {% block static %}
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+        <link rel="stylesheet" href="{% static 'css/movie_list.css' %}">
+        <link rel="stylesheet" href="{% static '/css/main.css' %}">
+    {% endblock %}
+    {% block js %}
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script type="text/javascript" src="{% static '/js/main.js' %}"></script>
+
+        <script>
+            $('.poster_container').slick({
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              infinite: true,
+              autoplay: true,
+              autoplaySpeed: 2000,
+            });
+            $('.news_wrapper').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 4000,
+            });
+
+        </script>
+    {% endblock %}
+
+{% block content %}
+    {% if type == '영화' %}
+    <div>
+        <div class="poster_container">
+            {% for movie in content %}
+                <div class="poster_wrapper">
+                    <a href="detail/{{ movie.code }}">
+                        <img class="movie_poster" src="{{ movie.poster }}"><br>
+                    </a>
+                    {{ movie.title }}<br>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+            <div class="news_wrapper b_n_w">
+                {% for c in content %}
+                    <div class="news_line" onclick="open_modal({{ c.id }})">
+                        <div class="news_coma" id="news_coma">
+                            <img class="category_img" src="{{ c.img }}" alt="img">
+                            <p>{{ c.title }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% for c in b %}
+                <dialog id="news_detail{{ c.id }}" class="modal modal_box cate_modal">
+
+                    <button onclick="close_modal({{ c.id }})">&times;</button>
+
+                    <div class="details">
+                        <img src="{{ c.img }}" alt="">
+                        <div class="modal_content">
+                        <p class="details_title">{{ c.title }}</p>
+                        <p>{{ c.content }}</p></div>
+                    </div>
+                    <div class="movie_recommend">
+                        <p class="recommend-title">현실이 더 영화 같다면?</p>
+                        <br>
+                        <p>이 기사를 본 당신에게...</p>
+                        <p onclick="location.href = '/movie/{{ c.id }}'">
+                            기사 내용과 비슷한 영화 더 보기</p>
+                    </div>
+                     <div class="reco_movies">
+                        {% for j in c.similar_movie %}
+                            <div class="poster_wrapper">
+                                <a href="movie/detail/{{ j.code }}">
+                                    <img class="movie_poster" src="{{ j.poster }}"><br>
+                                </a>
+                                {{ j.title }}<br>
+                            </div>
+                        {% endfor %}
+                     </div>
+                </dialog>
+            {% endfor %}
+    {% endif %}
+{% endblock %}
