@@ -26,8 +26,8 @@ def news_view(request):
                     try:
                         for j in random.sample(get_news.get_similar_movie(),3):
                             similar_movie.append(MovieModel.objects.get(code=j))
-                            get_news.similar_movie = similar_movie
-                            head_news.append(get_news)
+                        get_news.similar_movie = similar_movie
+                        head_news.append(get_news)
                     except:
                         continue
             else:

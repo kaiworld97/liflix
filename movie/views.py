@@ -182,7 +182,9 @@ def news_content(data, user_id):
     similar_list = [NewsModel.objects.get(id=i).get_similar_news() for i in news_list]
     _news = []
     for i in random.sample(list(chain.from_iterable(similar_list)), 9):
+
         get_news = NewsModel.objects.filter(title=i)[0]
+
         similar_movie = []
         try:
             for j in random.sample(get_news.get_similar_movie(), 3):

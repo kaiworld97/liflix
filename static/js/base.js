@@ -204,6 +204,10 @@ recognition.addEventListener("end", (e) => {
                 ai_close_btn()
                 location.href = '/news/105'
                 break
+            case '로고가 줘':
+                ai_close_btn()
+                location.href = '/liflix'
+                break
             // case '게시판가 줘':
             //     setTimeout(() => speak('저는 블루 입니다'), 1000);
             //     ai_close_btn()
