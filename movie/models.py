@@ -39,3 +39,4 @@ class MovieModel(models.Model):
     trailer = models.URLField(max_length=256)
     poster = models.URLField(max_length=256)
     story = models.TextField()
+    hit = models.IntegerField(default=0)

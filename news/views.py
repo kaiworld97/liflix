@@ -100,7 +100,8 @@ def category_news_view(request, category):
         news = NewsModel.objects.get(id=category)
         news_user = UserNewsModel.objects.filter(news_id=news, user_id=user)
         if not news_user:
-            UserNewsModel.objects.create(news_id=news, user_id=user)
+            UserNewsModel.objects.create(news_id=news, user_id=user, category=news.code)
             news.hit += 1
+
             news.save()
         return HttpResponse('save')
