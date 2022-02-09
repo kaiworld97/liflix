@@ -32,7 +32,7 @@ def sign_up(request):
         user_bio = request.POST.get('bio', '')
         user_birth = request.POST.get('birth', '')
         user_nick = request.POST.get('nick', '')
-        user_img = request.FILES.get('selectFile')
+        user_img = request.FILES.get('selectFile', 'img/profile_default.jpg')
         birth = request.POST.get('birth').split('-')[0]
         today = datetime.today().year
 

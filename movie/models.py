@@ -2,6 +2,7 @@ from django.db import models
 import json
 import ast
 
+
 # Create your models here.
 
 class MovieModel(models.Model):
@@ -34,6 +35,8 @@ class MovieModel(models.Model):
 
     def get_similar(self):
         return ast.literal_eval(json.loads(self.similar))
+
     trailer = models.URLField(max_length=256)
     poster = models.URLField(max_length=256)
     story = models.TextField()
+    hit = models.IntegerField(default=0)

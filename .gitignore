@@ -26,9 +26,15 @@ sentence_model
 
 fasttext_movie.model
 
+<<<<<<< HEAD
+venv
+
+venv/
+=======
 config
 
 movie_movie.csv
 
 news_news.csv
 
+>>>>>>> 89a0819e1bf8913e693b0b315eca0e1eda78d82c

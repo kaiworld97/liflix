@@ -16,32 +16,39 @@
         <div class="logo" onclick="window.location.reload()">
             <img src="/static/img/liflixlogo.png" alt="logo">
         </div>
-        <div class="nav">
-            <div class="nav_items" onclick="location.href = '/'">홈</div>
-            <div class="dropdown">
-                <button class="dropbtn">카테고리
-                </button>
-                <div class="dropdown-content">
-                    <a href="/news/105">IT/과학</a>
-                    <a href="/news/104">세계</a>
-                    <a href="/news/102">사회</a>
-                    <a href="/news/101">경제</a>
-                    <a href="/news/103">생활/문화</a>
-                    <a href="/news/100">정치</a>
+        {% if user.is_authenticated %}
+            <div class="nav">
+                <div class="nav_items" onclick="location.href = '/'">홈</div>
+                <div class="dropdown">
+                    <button class="dropbtn">카테고리
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/news/105">IT/과학</a>
+                        <a href="/news/104">세계</a>
+                        <a href="/news/102">사회</a>
+                        <a href="/news/101">경제</a>
+                        <a href="/news/103">생활/문화</a>
+                        <a href="/news/100">정치</a>
+                    </div>
                 </div>
+                <div class="nav_items" onclick="location.href = '/tweet'">자유게시판</div>
             </div>
-            <div class="nav_items" onclick="location.href = '/'">자유게시판</div>
-        </div>
+        {% endif %}
         <div class="menu">
 {#            <div class="search">#}
 {#                <input type="text" id="searchbar">#}
 {#            </div>#}
 {#            <div class="menu_items">검색</div>#}
-            <div class="header_hi">
-                {{ user.user_nick }}님 안녕하세요
-            </div>
-            <div>
+
+            <div class="display_flex">
                 {% if user.is_authenticated %}
+                <div style="margin-right: 10px">
+                    <img src="https://sparttabucket.s3.ap-northeast-2.amazonaws.com/{{user.user_img}}" width="30px" height="30px" >
+
+                </div>
+                <div class="header_hi">
+                    {{ user.user_nick }}님 안녕하세요
+                </div>
                 <div class="menu_items" onclick="menudrop();">•••</div>
                 <div id="dropmenu" class="drop">
                     <span OnClick="location.href='/update'">MyPage</span>
@@ -52,10 +59,62 @@
                 </div>
             </div>
         </div>
-
+    </div>
+</div>
+{#<iframe id="iframe1" name="iframe1" class="visibility_hidden"></iframe>#}
+ <form class="visibility_hidden" method="post" action="/blue/">
+     <label>
+         {% csrf_token %}
+         <input type="text" name="blue" id="blue">
+     </label>
+     <button type="submit" id="blue_btn">blue</button>
+ </form>
+{#블루#}
+<div id="ai_div" class="visibility_hidden">
+    <div id="ai_close_btn" class="ai_close_btn" onclick="ai_close_btn()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+        <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+        </svg>
+    </div>
+    <!-- Google Chrome -->
+<div class="infinityChrome">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+<div>
+<!-- Safari and others -->
+<div class="infinity">
+    <div>
+        <span></span>
+    </div>
+    <div>
+        <span></span>
+    </div>
+    <div>
+        <span></span>
     </div>
 </div>
 
+<!-- Stuff -->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: none;">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+    </defs>
+</svg>
+
+<!-- dribbble -->
+{#<a class="dribbble" href="https://dribbble.com/shots/5557955-Infinity-Loader" target="_blank"><img src="https://cdn.dribbble.com/assets/dribbble-ball-mark-2bd45f09c2fb58dbbfb44766d5d1d07c5a12972d602ef8b32204d28fa3dda554.svg" alt=""></a>#}
+</div>
+<div>
+<p class="ai_text">안녕하세요</p>
+</div>
+</div>
 {% block content %}
 {% endblock %}
 <script type="text/javascript" src="{% static '/js/base.js' %}"></script>
