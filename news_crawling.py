@@ -61,9 +61,10 @@ def make_data(urllist, code):
             continue
 
         # article.text 는 본문 // 제목을 가져오고 싶다면 article.title
-        text_list.append(article.text)
-        title_list.append(article.title)
-        image_list.append(src)
+        if len(article.text) > 100: # 본문 100자 이상만 저장
+            text_list.append(article.text)
+            title_list.append(article.title)
+            image_list.append(src)
 
     # news 라는 열에다가 기사 본문을 추가해서 데이터프레임 생성
     df = pd.DataFrame({'img': image_list, 'headline': title_list, 'news': text_list})
@@ -93,5 +94,5 @@ def make_total_data(page_num, code_list, date):
 # 현재 날짜 기사 받아오기
 today = datetime.today().strftime("%Y%m%d")
 code_list = [100, 101, 102, 103, 104, 105]
-df = make_total_data(5, code_list, today)
+df = make_total_data(15, code_list, today)
 df.to_csv('news_data.csv', index=False)
