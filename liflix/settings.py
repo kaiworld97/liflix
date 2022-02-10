@@ -16,8 +16,8 @@ import os
 import json
 
 pymysql.install_as_MySQLdb()
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

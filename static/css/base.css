@@ -23,6 +23,9 @@ body{
 .visibility_hidden{
     visibility: hidden;
 }
+.hidden{
+    display: none;
+}
 /*헤더*/
 
 .headerwrap {
@@ -132,7 +135,7 @@ input#searchbar {
     width: 162px;
     text-align: center;
     z-index: 1;
-    margin-top: 11px;
+    margin-top: 2%;
     cursor: pointer;
 }
 

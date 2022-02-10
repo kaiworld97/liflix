@@ -204,14 +204,15 @@ recognition.addEventListener("end", (e) => {
                 ai_close_btn()
                 location.href = '/news/105'
                 break
-            case '로고가 줘':
+            case '경제 카테고리가 줘':
                 ai_close_btn()
-                location.href = '/liflix'
+                location.href = '/news/103'
                 break
-            case '게시판가 줘':
-                ai_close_btn()
-                location.href = '/tweet'
-                break
+            // case '게시판가 줘':
+            //     setTimeout(() => speak('저는 블루 입니다'), 1000);
+            //     ai_close_btn()
+            //     location.href = '/'
+            //     break
             default:
                 if ((ai_text.innerText).split(' ').includes('추천해')) {
                     document.getElementById('blue').value = ai_text.innerText
@@ -227,3 +228,12 @@ recognition.addEventListener("end", (e) => {
 // 음성 인식 시작
 recognition.start();
 console.log('hi')
+
+function movie_click(){
+    document.getElementById('blue').value = '영화 추천해 줘'
+    document.getElementById('blue_btn').click()
+}
+function news_click(){
+    document.getElementById('blue').value = '뉴스 추천해 줘'
+    document.getElementById('blue_btn').click()
+}

@@ -32,6 +32,8 @@
                     </div>
                 </div>
                 <div class="nav_items" onclick="location.href = '/tweet'">자유게시판</div>
+{#                <div class="nav_items" onclick="news_click()">뉴스 추천</div>#}
+{#                <div class="nav_items" onclick="movie_click()">영화 추천</div>#}
             </div>
         {% endif %}
         <div class="menu">
@@ -65,9 +67,9 @@
  <form class="visibility_hidden" method="post" action="/blue/">
      <label>
          {% csrf_token %}
-         <input type="text" name="blue" id="blue">
+         <input type="text" name="blue" id="blue" class="visibility_hidden">
      </label>
-     <button type="submit" id="blue_btn">blue</button>
+     <button type="submit" id="blue_btn" class="visibility_hidden">blue</button>
  </form>
 {#블루#}
 <div id="ai_div" class="visibility_hidden">
