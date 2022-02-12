@@ -1,7 +1,9 @@
 # liflix
-liflix
+ <div align="center">
 
+[![liflix](https://i.ytimg.com/vi/LPFBjWrxBP4/hqdefault.jpg)](https://www.youtube.com/embed/LPFBjWrxBP4) 
 
+   </div>
 movie_crawling and cosine similarity each movies<br>
 https://colab.research.google.com/drive/1dPqQfuonb3vGCBJLdajwvTWMrb9m6xSW?usp=sharing
 
