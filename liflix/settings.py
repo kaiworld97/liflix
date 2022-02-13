@@ -158,8 +158,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'user.UserModel'
 
 
-
-
 EMAIL_HOST = 'smtp.gmail.com'  # 메일 호스트 서버
 EMAIL_PORT = '587'  # 서버 포트
 EMAIL_HOST_USER = secrets['mail']['EMAIL_HOST_USER']  # 우리가 사용할 Gmail
