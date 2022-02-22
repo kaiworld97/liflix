@@ -64,6 +64,17 @@ Life is flix
 <br>
 <br>
 
+
+뉴스앱 노광민
+
+영화앱 홍채영
+
+유저앱 서지훈
+
+트윗앱 강현명
+
+디자인 김보현
+
 ## Development Schedule
 1월 27일 sa제출 <br>
 2월 3일까지 앱 완성 <br>
